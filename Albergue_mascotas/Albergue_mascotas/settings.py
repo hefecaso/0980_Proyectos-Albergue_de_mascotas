@@ -19,7 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 #Cargamos los archivos estáticos de la plantilla copiada
 STATIC_DIR = (
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, 'static'),
 )
 
 # Quick-start development settings - unsuitable for production
@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #Alertando de albergueapp
-    'albergueapp',
+    'albergueapp'
 ]
 
 MIDDLEWARE = [

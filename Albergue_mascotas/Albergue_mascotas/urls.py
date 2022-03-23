@@ -14,15 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 #####################################
 #   Importando templates creadas    #
 #####################################
 
 #from Albergue_mascotas.views import hola_mundo
-from albergueapp import views
-from django.contrib.staticfiles.urls import  staticfiles_urlpatterns
+#from django.contrib.staticfiles.urls import  staticfiles_urlpatterns
+#from albergueapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,7 +31,7 @@ urlpatterns = [
     #hola_mundo/ puede ser diferente, este será solo la url http://127.0.0.1:8000/hola_mundo/
 
     #Mostrando ruta a mostrar al lanzar el servidor Django
-    path('', views.index),
+    path('', include('albergueapp.urls')),
 ]
 
-urlpatterns += staticfiles_urlpatterns()
+#urlpatterns += staticfiles_urlpatterns()
