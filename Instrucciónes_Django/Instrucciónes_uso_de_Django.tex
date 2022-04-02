@@ -277,6 +277,33 @@ urlpatterns = [
 
 \end{lstlisting}
 
+\section{Primeras configuraciónes}
+
+Para crear las primera configuraciones de \emph{migrate} utlizamos el siguiente comando en la carpeta en el que tenemos el archivo \emph{manage.py}:\\
+
+\begin{verbatim}
+$ python manage.py migrate
+\end{verbatim}
+
+\section{Superusuario}
+
+También crearemos un super usuario para que podamos agregar o designar a una persona como administrador de toda la página con el siguiente comando en la terminal:\\
+
+\begin{verbatim}
+$ python manage.py createsuperuser
+\end{verbatim}
+
+y tendremos que ingresar los siguientes datos:\\
+
+\begin{verbatim}
+Username (leave blank to use 'hefecaso'): fernando
+Email address: admin@admin.com
+Password: 
+Password (again): 
+This password is too short. It must contain at least 8 characters.
+Bypass password validation and create user anyway? [y/N]: y
+Superuser created successfully.
+\end{verbatim}
 
 
 \end{document}
