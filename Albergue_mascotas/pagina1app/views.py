@@ -20,3 +20,7 @@ def iniciosesion(request):
 def contacto(request):
 
     return render(request, "pagina1app/contacto.html")
+
+def Formulario_registro_mascota(request):
+
+    return render(request, "pagina1app/Formulario_registro_mascota.html")

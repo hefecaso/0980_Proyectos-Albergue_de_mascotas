@@ -11,4 +11,5 @@ urlpatterns = [
     path('albergue',views.albergue, name="Albergue"),
     path('iniciosesion',views.iniciosesion, name="Inicio de sesión"),
     path('contacto',views.contacto, name="Contacto"),
+    path('Formulario_registro_mascota',views.Formulario_registro_mascota, name="Formulario registro"),
 ]

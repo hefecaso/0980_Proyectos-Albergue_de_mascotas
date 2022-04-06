@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  </head>
+  <body>{% load static %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>New page</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alatsi&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Capriola&amp;display=swap">
+    <div style="text-align: center;"><a name="anchor" class="logo_link"><img
+          src="../../static/Formulario_registro_mascota/image/que-prefiere-la-gente-perros-o-gatos.jpg"
+          class="logo_img" style="width: 419px; height: 202px;" alt="encabezado"
+          title="encabezado"></a></div>
+    <header class="header">
+      <nav class="nav">
+        <ul class="menu">
+          <li class="menu-item"> <a href="{% url 'Home' %}">Inicio</a> </li>
+          <li class="menu-item"> <a href="#">Servicios</a> </li>
+          <li class="menu-item"> <a href="#">Contacto</a> </li>
+          <li class="menu-item"> <a href="{% url 'Contacto' %}">Ingresar</a></li>
+        </ul>
+        <p><br>
+        </p>
+        <p><b>Alimentación:</b></p>
+        <input name="alimentacion" size="70" maxlength="900" type="text"><br>
+        <br>
+        <b>Vacunación:</b><br>
+        <input name="fechavacuna" min="100" max="30" autocomplete="off"
+          type="date"><br>
+        <br>
+        <strong>ID:</strong><br>
+        <input name="idusuario" value="idusuario" min="100" max="30" type="number"><br>
+        <br>
+        <strong>Nombre:</strong><br>
+        <input name="nombreusuario" size="70" maxlength="900" type="text"><br>
+        <br>
+        <strong>Fecha de rescate:<br>
+          <input name="fecharescate" min="100" max="30" type="date"><br>
+          <br>
+          Raza:<br>
+          <input name="raza" size="30" maxlength="100" type="text"><br>
+          <br>
+          Enfermedades:<br>
+          <br>
+          <input name="enfermedades-si" value="enfermedades-si" form="Sí"
+            type="checkbox"></strong>Sí<strong><br>
+          <input name="enfermedades-no" value="enfermedades-no" form="No"
+            type="checkbox"></strong>No<strong><br>
+          <br>
+        </strong><br>
+
+        <form method="post">
+          {% csrf_token %}
+          {{ form }}
+          <button type="submit" value="Enviar">Enviar</button>
+          <button type="reset" value="Reestablecer">Reiniciar</button>
+        </form>
+        <ul class="menu">
+        </ul>
+        <ul class="menu">
+        </ul>
+      </nav>
+    </header>
+    <main class="main pg-empty-placeholder"></main>
+  </body>
+</html>
