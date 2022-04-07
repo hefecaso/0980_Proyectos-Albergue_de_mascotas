@@ -21,6 +21,10 @@ def contacto(request):
 
     return render(request, "pagina1app/contacto.html")
 
-def Formulario_registro_mascota(request):
+def formulario_registro_mascota(request):
 
-    return render(request, "pagina1app/Formulario_registro_mascota.html")
+    return render(request, "pagina1app/formulario_registro_mascota.html")
+
+def registro_y_adopcion(request):
+
+    return render(request, "pagina1app/registro_y_adopcion.html")

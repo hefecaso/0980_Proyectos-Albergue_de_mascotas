@@ -11,5 +11,6 @@ urlpatterns = [
     path('albergue',views.albergue, name="Albergue"),
     path('iniciosesion',views.iniciosesion, name="Inicio de sesión"),
     path('contacto',views.contacto, name="Contacto"),
-    path('Formulario_registro_mascota',views.Formulario_registro_mascota, name="Formulario registro"),
+    path('registro_y_adopcion',views.registro_y_adopcion, name="Formularios registro y adopcion"),
+    path('formulario_registro_mascota',views.formulario_registro_mascota, name="Formulario registro"),
 ]
