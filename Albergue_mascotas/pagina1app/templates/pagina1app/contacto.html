@@ -1,72 +1,70 @@
-<!doctype html>
-<!--[if lte IE 9]>
-<html lang="en" class="oldie">
-<![endif]-->
-<!--[if gt IE 9]><!-->
-<html lang="en">
-<!--<![endif]-->
-<head>
+<!-- [if lte IE 9]> <html lang="en" class="oldie"> <![endif] -->
 
-  {% load static %}
+<!-- [if gt IE 9]><! -->
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact Us Form</title>
-  <link rel="stylesheet" media="all" href="{% static 'contacto/style.css' %}" />
-</head>
-<body>
+<!-- <![endif] -->
+
+{% load static %}
+
+<meta charset="utf-8"></meta>
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1">
+</meta>
+
+<title>Contact Us Form</title>
+
+<link
+  href="{% static 'contacto/style.css' %}"
+  rel="stylesheet"
+  media="all">
+</link>
+
 <div class="container">
-	<div class="row">
-			<h1>contact us</h1>
-	</div>
-	<div class="row">
-			<h4 style="text-align:center">We'd love to hear from you!</h4>
-	</div>
+  <div class="row"><h1>contact us</h1></div>
 
+  <div class="row"><h4 style="text-align:center">We'd love to hear from you!</h4></div>
 
+  <div class="row input-container">
+    <div class="col-xs-12">
+      <div class="styled-input wide">
+        <input
+          type="text"
+          required/>
+        <label>Name</label>
+      </div>
+    </div>
 
-	<div class="row input-container">
+    <div class="col-md-6 col-sm-12">
+      <div class="styled-input">
+        <input
+          type="text"
+          required/>
+        <label>Email</label>
+      </div>
+    </div>
 
-			<div class="col-xs-12">
-				<div class="styled-input wide">
-					<input type="text" required />
-					<label>Name</label>
-				</div>
-			</div>
+    <div class="col-md-6 col-sm-12">
+      <div
+        class="styled-input"
+        style="float:right;">
+        <input
+          type="text"
+          required/>
+        <label>Phone Number</label>
+      </div>
+    </div>
 
+    <div class="col-xs-12">
+      <div class="styled-input wide"><textarea required></textarea><label>Message</label></div>
+    </div>
 
-			<div class="col-md-6 col-sm-12">
-				<div class="styled-input">
-					<input type="text" required />
-					<label>Email</label>
-				</div>
-			</div>
-
-
-			<div class="col-md-6 col-sm-12">
-				<div class="styled-input" style="float:right;">
-					<input type="text" required />
-					<label>Phone Number</label>
-				</div>
-			</div>
-
-
-			<div class="col-xs-12">
-				<div class="styled-input wide">
-					<textarea required></textarea>
-					<label>Message</label>
-				</div>
-			</div>
-
-
-			<div class="col-xs-12">
-        <input type="button" value="Buscar">
-			  <div class="btn-lrg submit-btn">Send Message</div>
-			</div>
-
-	</div>
-
-
+    <div class="col-xs-12">
+      <input
+        type="button"
+        value="Buscar"/>
+      <div class="btn-lrg submit-btn">Send Message</div>
+    </div>
+  </div>
 </div>
-</body>
-</html>
