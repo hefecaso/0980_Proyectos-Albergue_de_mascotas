@@ -28,3 +28,7 @@ def formulario_registro_mascota(request):
 def registro_y_adopcion(request):
 
     return render(request, "pagina1app/registro_y_adopcion.html")
+
+def formulario_adopcion(request):
+
+    return render(request,"pagina1app/formulario_adopcion.html")

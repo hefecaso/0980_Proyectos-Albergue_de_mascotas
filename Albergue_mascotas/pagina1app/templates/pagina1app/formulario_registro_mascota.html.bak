@@ -19,8 +19,9 @@
       <!--Navegación -->
       <header class="header" style="background-color: white;">
         <!--Campos del formulario--><br>
-        <p style="background-color: white; margin-left: 40px;"> <strong>ID mascota:</strong><br>
-          <input name="id_mascota" size="80" min="1" max="1000" type="number"></p>
+        <p style="background-color: white; margin-left: 40px;"> <strong>ID:</strong><br>
+          <input name="idusuario" size="80" value="idusuario" min="1" max="1000"
+            type="number"></p>
         <p style="background-color: white; margin-left: 40px;"><b>Nombre de la mascota:</b></p>
         <div style="margin-left: 40px;"> <input name="nombre_mascota" size="70"
             maxlength="900" type="text"></div>

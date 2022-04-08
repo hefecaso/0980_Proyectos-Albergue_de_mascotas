@@ -22,7 +22,7 @@
     {% load static %}
     <p style="text-align: center;"> <a href="{% url 'Formulario registro' %}"><button
           name="Registrar_mascota" value="Registrar_mascota">Registrar</button></a></p>
-    <p style="text-align: center;"><a href="#"><button name="Adoptar_mascota"
+    <p style="text-align: center;"><a href="{% url 'Formulario adopcion' %}"><button name="Adoptar_mascota"
           value="Adoptar_mascota">Adoptar</button></a> </p>
     {% endblock %}
   </body>
