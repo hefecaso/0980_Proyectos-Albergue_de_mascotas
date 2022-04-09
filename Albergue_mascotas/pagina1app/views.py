@@ -26,3 +26,6 @@ def registro_y_adopcion(request):
 
 def formulario_adopcion(request):
     return render(request,"pagina1app/formulario_adopcion.html")
+
+def registro(request):
+    return render(request, 'registration/registro.html')
