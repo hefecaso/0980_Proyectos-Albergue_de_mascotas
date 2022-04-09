@@ -1,0 +1,43 @@
+<!-- Heredando de base -->
+
+{% extends "pagina1app/base.html" %}  {% load static %}  {% block content %}
+
+<meta charset="UTF-8"></meta>
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+</meta>
+
+<meta
+  http-equiv="X-UA-Compatible"
+  content="ie=edge">
+</meta>
+
+<title>Ingreso de usuario</title>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h2>Ingesa tus credenciales</h2>
+
+          <hr></hr>
+
+          <form
+            action
+            method="post">
+            {% csrf_token %}               {{ form }}
+
+            <input
+              type="submit"
+              value="ingresar"/>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

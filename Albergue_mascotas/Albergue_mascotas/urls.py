@@ -23,5 +23,6 @@ urlpatterns = [
     #importamos las urls que se trasladaron a la pagina1app
     #si se crea una nueva app y se crean urls dentro de esa my_app
     #se debera incluir en esta url central
-    path('', include('pagina1app.urls'))
+    path('', include('pagina1app.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

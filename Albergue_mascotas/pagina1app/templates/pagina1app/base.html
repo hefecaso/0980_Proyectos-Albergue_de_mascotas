@@ -1,109 +1,214 @@
-<html>
+{% load static %}
 
-<head>
+<!-- Bootstrap -->
 
+<link
+  href="{% static 'pagina1app/vendor/bootstrap/css/bootstrap.min.css' %}"
+  rel="stylesheet">
+</link>
 
-  {% load static %}
-  <!-- Bootstrap -->
-  <link href="{% static 'pagina1app/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<!-- Fonts -->
 
-  <!-- Fonts -->
+<link
+  href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+  rel="stylesheet">
+</link>
 
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i"
+  rel="stylesheet">
+</link>
 
+<!-- Styles -->
 
-  <!-- Styles -->
-  <link href="{% static 'pagina1app/css/gestion.css' %}" rel="stylesheet">
-</head>
+<link
+  href="{% static 'pagina1app/css/gestion.css' %}"
+  rel="stylesheet">
+</link>
 
-<body>
+<h1 class="site-heading text-center text-white d-none d-lg-block">
+  <span class="site-heading-lower">Puppy hero</span>
+</h1>
 
-  <h1 class="site-heading text-center text-white d-none d-lg-block">
+<!-- Navbar -->
 
-    <span class="site-heading-lower">Puppy hero</span>
-  </h1>
+<nav
+  id="mainNav"
+  class="navbar navbar-expand-lg navbar-dark py-lg-4">
+  <div class="container">
+    <a
+      class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none"
+      href="{% url 'Home' %}">
+      Puppy hero
+    </a>
 
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarResponsive"
+      aria-controls="navbarResponsive"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{% url 'Home' %}">Puppy hero</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'Home' %}">Inicio</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'Servicios' %}">Servicios</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'Albergue' %}">Albergue</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'Inicio de sesión' %}">Iniciar sesión</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'Contacto' %}">Contacto</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="{% url 'Formularios registro y adopcion' %}">Formularios registro y adopcion</a>
-          </li>
+    <div
+      id="navbarResponsive"
+      class="collapse navbar-collapse">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item active px-lg-4">
+          <a
+            class="nav-link text-uppercase text-expanded"
+            href="{% url 'Home' %}">
+            Inicio
+          </a>
+        </li>
 
-        </ul>
-      </div>
+        <li class="nav-item px-lg-4">
+          <a
+            class="nav-link text-uppercase text-expanded"
+            href="{% url 'Servicios' %}">
+            Servicios
+          </a>
+        </li>
+
+        <li class="nav-item px-lg-4">
+          <a
+            class="nav-link text-uppercase text-expanded"
+            href="{% url 'Albergue' %}">
+            Albergue
+          </a>
+        </li>
+
+        <li class="nav-item px-lg-4">
+          <a
+            class="nav-link text-uppercase text-expanded"
+            href="{% url 'Inicio de sesión' %}">
+            Iniciar sesión
+          </a>
+        </li>
+
+        <li class="nav-item px-lg-4">
+          <a
+            class="nav-link text-uppercase text-expanded"
+            href="{% url 'Contacto' %}">
+            Contacto
+          </a>
+        </li>
+
+        <li class="nav-item px-lg-4">
+          <a
+            class="nav-link text-uppercase text-expanded"
+            href="{% url 'Formularios registro y adopcion' %}">
+            Formularios registro y adopcion
+          </a>
+        </li>
+
+<!--Creando condicional login y logout-->
+
+        {% if user.is_authenticated %}
+        <li class="nav-item px-lg-4">
+          <a
+            class="nav-link text-uppercase text-expanded"
+            href="{% url 'logout' %}">
+            Cerrar sesión
+          </a>
+        </li>
+
+        <li class="nav-item px-lg-4">
+          <a
+            class="nav-link text-uppercase text-expanded"
+            href="#">
+            {{ user.username }}
+          </a>
+        </li>
+        {% else %}
+        <li class="nav-item px-lg-4">
+          <a
+            class="nav-link text-uppercase text-expanded"
+            href="{% url 'login' %}">
+            Iniciar sesión
+          </a>
+        </li>
+        {% endif %}
+<!-- //////////////////////////////////////////////////// -->
+
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- Contenido cambiante -->
+<!-- Contenido cambiante -->
 
-  {% block content %}
+{% block content %}       {% endblock %}
 
+<!-- Footer -->
 
+<footer class="footer text-faded text-center py-5">
+  <div class="container">
+    <p class="m-0">
+      <a
+        class="link"
+        href="#">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
 
+          <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
 
-  {% endblock %}
+      <a
+        class="link"
+        href="#">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
 
-  <!-- Footer -->
-  <footer class="footer text-faded text-center py-5">
-    <div class="container">
-      <p class="m-0">
-        <a href="#" class="link">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-        <a href="#" class="link">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-        <a href="#" class="link">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </p>
-      <p class="m-0 mbt">
-        <a href="sample.html" class="link">Política de privacidad</a> ·
-        <a href="sample.html" class="link">Aviso legal</a> ·
-        <a href="sample.html" class="link">Cookies</a>
-      </p>
-      <p class="m-0 mbt1">&copy; Albergue de mascotas 2022</p>
-    </div>
-  </footer>
+          <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
 
-  <!-- Bootstrap -->
-  <script src="{% static 'pagina1app/vendor/jquery/jquery.min.js' %}"></script>
-  <script src="{% static 'pagina1app/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+      <a
+        class="link"
+        href="#">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x"></i>
 
-</body>
+          <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+    </p>
 
+    <p class="m-0 mbt">
+      <a
+        class="link"
+        href="sample.html">
+        Política de privacidad
+      </a>
 
-</html>
+      ·
+
+      <a
+        class="link"
+        href="sample.html">
+        Aviso legal
+      </a>
+
+      ·
+
+      <a
+        class="link"
+        href="sample.html">
+        Cookies
+      </a>
+    </p>
+
+    <p class="m-0 mbt1">© Albergue de mascotas 2022</p>
+  </div>
+</footer>
+
+<!-- Bootstrap -->
+
+<script src="{% static 'pagina1app/vendor/jquery/jquery.min.js' %}"></script>
+
+<script src="{% static 'pagina1app/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
