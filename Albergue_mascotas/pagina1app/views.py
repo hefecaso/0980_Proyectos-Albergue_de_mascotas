@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.http import Http404
 from django.shortcuts import redirect
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 def home(request):
@@ -40,7 +41,7 @@ def formulario_adopcion(request):
 #   Configurando el registro de usuario     #
 #############################################
 
-
+id
 def registro(request):
     data = {'form': CustomUserCreationForm()}
 
@@ -48,8 +49,12 @@ def registro(request):
         formulario = CustomUserCreationForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
+            #Autenticando al usuario
+            user = authenticate(username=formulario.cleaned_data['username'], password=formulario.cleaned_data["password1"])
+            login(request, user)
+            messages.success(request, "Te has registrado correctamente")
             #Redirigiendo a Home
-            return redirect(to="home")
+            return redirect(to="Home")
         data ["form"] = formulario
 
     return render(request, 'registration/registro.html', data)
