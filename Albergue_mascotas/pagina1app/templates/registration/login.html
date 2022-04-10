@@ -46,7 +46,8 @@
               method="post">
               {% csrf_token %}               {{ form | crispy}}
 
-              <a href="{% url 'Home' %}">Inicio</a>
+              <a href="{% url 'Home' %}">Inicio</a> |
+              <a href="{% url 'Formulario Registro' %}">Registrarse</a>
 
               <input
                 class="btn btn-success float-right"
