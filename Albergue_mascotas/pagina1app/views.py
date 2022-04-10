@@ -4,7 +4,7 @@ from .forms import CustomUserCreationForm
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.http import Http404
-
+from django.shortcuts import redirect
 
 # Create your views here.
 def home(request):
