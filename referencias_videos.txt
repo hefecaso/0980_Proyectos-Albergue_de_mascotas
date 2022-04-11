@@ -36,7 +36,7 @@ Importar y exportas bases de datos de postgres:
 https://platzi.com/tutoriales/1480-postgresql/2252-como-generar-una-backup-de-postgresql-y-como-restaurarla/
 
 pg_dump -U postgres -W -h 127.0.0.1 puppy_heroe > Descargas/puppy_heroe.PSQL
-
+pg_dump -U postgres -W -h 127.0.0.1 puppy_heroe < Descargas/puppy_heroe.PSQL
 =============================================================
 
 Tipos de campos en models!
@@ -45,4 +45,16 @@ https://developer.mozilla.org/es/docs/Learn/Server-side/Django/Models
 
 https://docs.djangoproject.com/en/1.10/ref/models/fields/#field-types
 
+
+=============================================================
+
+Pasos para crear un nuevo formulario:
+
+1. models.py
+2. python manage.py makemigrations
+3. python manage.py migrate
+4. registramos en admin.py
+5. forms.py
+6. views.py
+7. archivo.html
 
