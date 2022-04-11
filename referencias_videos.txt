@@ -28,5 +28,13 @@ You can see the sequences in your database using the \ds command in psql. If you
 https://stackoverflow.com/questions/5342440/reset-auto-increment-counter-in-postgres
 
 https://www.youtube.com/watch?v=pZO9pm8kuPs&ab_channel=jcmontoya
+
 =============================================================
+
+Importar y exportas bases de datos de postgres:
+
+https://platzi.com/tutoriales/1480-postgresql/2252-como-generar-una-backup-de-postgresql-y-como-restaurarla/
+
+pg_dump -U postgres -W -h 127.0.0.1 puppy_heroe > Descargas/puppy_heroe.PSQL 
+
 
