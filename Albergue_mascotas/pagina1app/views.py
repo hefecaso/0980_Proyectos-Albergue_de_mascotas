@@ -1,6 +1,6 @@
-from django.shortcuts import render, HttpResponse
-
-from .forms import CustomUserCreationForm, ContactoForm
+from django.shortcuts import render, HttpResponse, redirect
+from django.http import HttpResponse
+from .forms import CustomUserCreationForm, ContactoForm, Registro_mascota_Form
 
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -89,3 +89,22 @@ def contacto(request):
             data["form"] = formulario
 
     return render(request, "pagina1app/contacto.html", data)
+
+#####################################################
+#   Configurando el registro para registro mascota  #
+#####################################################
+
+def formulario_registro_mascota(request):
+
+    if request.method == 'POST':
+        #Si me enviaron datos, crear nuevo formulario con los datos enviados
+        form = Registro_mascota_Form(request.POST) #POST es un diccionario con todos los datos
+
+        if form.is_valid(): #Validando
+            form.save()
+        return redirect('Formulario registro')
+
+    else: #Si no valida
+        form = Registro_mascota_Form()
+
+    return render(request, "pagina1app/formulario_registro_mascota.html", {'form':form})

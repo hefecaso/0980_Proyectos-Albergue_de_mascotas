@@ -52,7 +52,7 @@ class Registro_mascota(models.Model):
     edad_mascota = models.PositiveIntegerField()
     fecha_rescate_mascota = models.DateField(auto_now_add=False, auto_now=False, blank=True)
     fecha_vacuna_mascota = models.DateField(auto_now_add=False, auto_now=False, blank=True)
-    foto_mascota = models.ImageField()
+    foto_mascota = models.ImageField(upload_to = 'fotos_mascotas')
     raza_mascota = models.CharField(max_length=100)
     vacunas_mascota = MultiSelectField(choices=vacunas_mascota_op)
 
@@ -68,3 +68,10 @@ class Registro_mascota(models.Model):
 #Para postgres
 #DROP DATABASE puppy_heroe;
 #create database puppy_heroe;
+
+
+#Para las fotos: https://www.youtube.com/watch?v=miaOMvHw4nw&t=178s&ab_channel=codigofacilito
+
+#Referencia formularios
+# https://www.youtube.com/watch?v=HDz6lqZ91rE&t=554s
+# https://www.youtube.com/watch?v=B3oQIx1W8PA&t=662s
