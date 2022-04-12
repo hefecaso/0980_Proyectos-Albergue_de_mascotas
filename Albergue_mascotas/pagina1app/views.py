@@ -5,7 +5,7 @@ from .forms import CustomUserCreationForm, ContactoForm
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.http import Http404
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.contrib.auth import authenticate, login
 
 # Create your views here.
