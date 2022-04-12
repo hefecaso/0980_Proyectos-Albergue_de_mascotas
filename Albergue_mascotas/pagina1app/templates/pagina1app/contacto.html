@@ -1,5 +1,5 @@
 <!-- Heredando de base -->
-
+{% extends "pagina1app/base.html" %} {% load static %} {% block content %}
 <header
 
   style="background-color: white;"
@@ -9,22 +9,38 @@
     content="text/html; charset=windows-1252">
   </meta>
 
-  {% extends "pagina1app/base.html" %} {% load static %} {% block content %}
 
-  <h2>Contacta con nosotros</h2>
-  <form class="formulario_contacto" action=" " method="post">
+  {% load crispy_forms_tags %}
 
-    {% load crispy_forms_tags %}
+  <div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
 
-    {% csrf_token %}
+      <br>
+      <h2>Contacta con nosotros</h2>
+      <br>
 
-    {{ form | crispy }}
+      <form class=" " action=" " method="post">
 
-    <br>
-    <button type="submit" id="btnEnviar" class="button">Enviar</button>
 
-  </form>
-  {{mensaje}}
+
+        {% csrf_token %}
+
+        {{ form | crispy }}
+
+        <br>
+
+        <div class="d-flex justify-content-end">
+          <input type="reset" class="btn btn-secondary" value="Cancelar">
+          &nbsp;
+          <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+        </div>
+
+
+      </form>
+      {{mensaje}}
+    </div>
+  </div>
+
   <table id="tablacontacto">
 
   </table>
