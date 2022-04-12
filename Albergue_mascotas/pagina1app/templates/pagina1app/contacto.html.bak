@@ -7,14 +7,12 @@
 
 {% extends "pagina1app/base.html" %} {% load static %} {% block content %}
 
-
 <header
   class="header"
   name="viewport"
   style="background-color: white;"
   <h2>
   <div style="margin-left: 40px; text-align: center;">
-    <br><br>
     <b style="font-size: xx-large;">Contacta con nosotros</b>
   </div>
 
@@ -24,14 +22,13 @@
 
   <div style="margin-left: 40px;">{% load crispy_forms_tags %}</div>
 
-  <div class="row">
-    <!-- Centrando -->
-
+  <div class="row"> <!-- Centrando -->
     <div class="col-12 col-md-6 offset-md-3">
       <form
         class=" "
-        action=" "
+        action = " "
         method="post">
+
         {% csrf_token %} {{ form | crispy}}
 
         <br/>
@@ -40,8 +37,10 @@
       <hr></hr>
 
       {{mensaje}}
+
     </div>
   </div>
+
 
   <form
     class="formulario_contacto"
@@ -55,11 +54,14 @@
     action
     style="margin-left: 40px;"
     method="post">
+
     <div class="d-flex justify-content-end">
+
       <input
         class="btn btn-secondary"
         value="Cancelar"
-        type="reset"/>
+        type="reset"
+      />
 
       &nbsp; <!-- Espacio horizontal entre botones -->
 
@@ -70,8 +72,12 @@
         type="submit">
         Enviar
       </button>
+
     </div>
+
   </form>
+
+
 
   <table id="tablacontactos"></table>
 </header>
