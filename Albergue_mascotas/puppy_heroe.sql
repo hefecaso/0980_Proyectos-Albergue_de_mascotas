@@ -360,6 +360,43 @@ CREATE TABLE public.django_session (
 ALTER TABLE public.django_session OWNER TO postgres;
 
 --
+-- Name: pagina1app_contacto; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.pagina1app_contacto (
+    id bigint NOT NULL,
+    nombre character varying(100) NOT NULL,
+    correo character varying(254) NOT NULL,
+    tipo_consulta integer NOT NULL,
+    mensaje text NOT NULL,
+    avisos boolean NOT NULL
+);
+
+
+ALTER TABLE public.pagina1app_contacto OWNER TO postgres;
+
+--
+-- Name: pagina1app_contacto_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.pagina1app_contacto_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.pagina1app_contacto_id_seq OWNER TO postgres;
+
+--
+-- Name: pagina1app_contacto_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.pagina1app_contacto_id_seq OWNED BY public.pagina1app_contacto.id;
+
+
+--
 -- Name: auth_group id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -423,6 +460,13 @@ ALTER TABLE ONLY public.django_migrations ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
+-- Name: pagina1app_contacto id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pagina1app_contacto ALTER COLUMN id SET DEFAULT nextval('public.pagina1app_contacto_id_seq'::regclass);
+
+
+--
 -- Data for Name: auth_group; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -467,6 +511,14 @@ COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
 22	Can change session	6	change_session
 23	Can delete session	6	delete_session
 24	Can view session	6	view_session
+25	Can add contacto	7	add_contacto
+26	Can change contacto	7	change_contacto
+27	Can delete contacto	7	delete_contacto
+28	Can view contacto	7	view_contacto
+29	Can add registro_mascota	8	add_registro_mascota
+30	Can change registro_mascota	8	change_registro_mascota
+31	Can delete registro_mascota	8	delete_registro_mascota
+32	Can view registro_mascota	8	view_registro_mascota
 \.
 
 
@@ -475,7 +527,8 @@ COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
 --
 
 COPY public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
-1	pbkdf2_sha256$320000$rDbrzVfKzurE1jDKj5HgLU$wQeymiRFCNE8tq//aOxUvuTPJ+ToFzzFPNcSqJngNz0=	2022-04-10 03:26:59.302832-06	t	admin			admin@admin.com	t	t	2022-04-09 00:39:35.244705-06
+2	pbkdf2_sha256$320000$BSzx3S0ve1vt0Uu0kTi2FP$+ycfrdO6MeVDGWRVF98BhZY0FEvKrQnsu+q+d5TtTuQ=	2022-04-11 02:24:46.865569-06	f	hefecaso				f	t	2022-04-11 02:24:24.336078-06
+1	pbkdf2_sha256$320000$rDbrzVfKzurE1jDKj5HgLU$wQeymiRFCNE8tq//aOxUvuTPJ+ToFzzFPNcSqJngNz0=	2022-04-11 20:03:20.121533-06	t	admin			admin@admin.com	t	t	2022-04-09 00:39:35.244705-06
 \.
 
 
@@ -509,6 +562,7 @@ COPY public.django_admin_log (id, action_time, object_id, object_repr, action_fl
 7	2022-04-10 03:53:40.055387-06	8	hefecaso	3		4	1
 8	2022-04-10 04:06:57.388795-06	2	hefecaso	1	[{"added": {}}]	4	1
 9	2022-04-10 04:08:12.882845-06	2	hefecaso	3		4	1
+10	2022-04-11 02:20:36.049296-06	3	hefecaso	3		4	1
 \.
 
 
@@ -523,6 +577,8 @@ COPY public.django_content_type (id, app_label, model) FROM stdin;
 4	auth	user
 5	contenttypes	contenttype
 6	sessions	session
+7	pagina1app	contacto
+8	pagina1app	registro_mascota
 \.
 
 
@@ -549,6 +605,9 @@ COPY public.django_migrations (id, app, name, applied) FROM stdin;
 16	auth	0011_update_proxy_permissions	2022-04-09 00:33:28.889396-06
 17	auth	0012_alter_user_first_name_max_length	2022-04-09 00:33:28.910757-06
 18	sessions	0001_initial	2022-04-09 00:33:29.538158-06
+19	pagina1app	0001_initial	2022-04-10 20:34:43.174769-06
+20	pagina1app	0002_alter_contacto_tipo_consulta	2022-04-11 01:55:44.649768-06
+21	pagina1app	0003_registro_mascota	2022-04-11 20:13:44.600834-06
 \.
 
 
@@ -558,7 +617,35 @@ COPY public.django_migrations (id, app, name, applied) FROM stdin;
 
 COPY public.django_session (session_key, session_data, expire_date) FROM stdin;
 8n6k3i8k8qgmdvp59qzr1fc4y9sgzy0n	e30:1ndTiw:wfC1EzVa_SiaCkNeaXNop817pO9B8SGdw7Ttr_Cqyaw	2022-04-24 03:19:10.449098-06
-80eng2im0qf29xc0tnfzj485a8vcbcxw	.eJxVjEEOwiAQRe_C2pAOtBRcuvcMZIYZpGpoUtqV8e7apAvd_vfef6mI21ri1mSJE6uzAnX63QjTQ-oO-I71Nus013WZSO-KPmjT15nleTncv4OCrXzrfrCAEhxYMGIdZUHoQqJAYAZMNGZPPLK12QH4RODBWDKBGEIPnVPvD94RN4g:1ndTqV:_UIHPTXRhdaIb0n7waShE1RM02DMISn_tGQgP9cA5d0	2022-04-24 03:26:59.38206-06
+xzt6g0wakv0550chxcpk28em4hf4mdfz	.eJxVjEEOwiAQRe_C2pAOtBRcuvcMZIYZpGpoUtqV8e7apAvd_vfef6mI21ri1mSJE6uzAnX63QjTQ-oO-I71Nus013WZSO-KPmjT15nleTncv4OCrXzrfrCAEhxYMGIdZUHoQqJAYAZMNGZPPLK12QH4RODBWDKBGEIPnVPvD94RN4g:1ne5sG:2X2ysWuO9FNRh_igDvcSZY68LutstMJ2kZ3nag791aY	2022-04-25 20:03:20.172534-06
+\.
+
+
+--
+-- Data for Name: pagina1app_contacto; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.pagina1app_contacto (id, nombre, correo, tipo_consulta, mensaje, avisos) FROM stdin;
+1	Fernando Carrera	correo@ejemplo.com	0	dfdfsadfassdf	f
+2	Fernando Carrera	correo@ejemplo.com	3	Felicidades! haz logrado crear template contacto!	t
+3	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+4	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+5	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+6	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+7	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+8	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+9	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+10	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+11	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+12	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+13	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+14	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+15	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+16	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+17	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+18	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+19	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
+20	Fernando Soto	correo@ejemplo.com	3	Recuperamos contacto señores!	t
 \.
 
 
@@ -580,7 +667,7 @@ SELECT pg_catalog.setval('public.auth_group_permissions_id_seq', 1, false);
 -- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.auth_permission_id_seq', 24, true);
+SELECT pg_catalog.setval('public.auth_permission_id_seq', 32, true);
 
 
 --
@@ -608,21 +695,28 @@ SELECT pg_catalog.setval('public.auth_user_user_permissions_id_seq', 1, false);
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.django_admin_log_id_seq', 9, true);
+SELECT pg_catalog.setval('public.django_admin_log_id_seq', 10, true);
 
 
 --
 -- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.django_content_type_id_seq', 6, true);
+SELECT pg_catalog.setval('public.django_content_type_id_seq', 8, true);
 
 
 --
 -- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.django_migrations_id_seq', 18, true);
+SELECT pg_catalog.setval('public.django_migrations_id_seq', 21, true);
+
+
+--
+-- Name: pagina1app_contacto_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.pagina1app_contacto_id_seq', 20, true);
 
 
 --
@@ -759,6 +853,14 @@ ALTER TABLE ONLY public.django_migrations
 
 ALTER TABLE ONLY public.django_session
     ADD CONSTRAINT django_session_pkey PRIMARY KEY (session_key);
+
+
+--
+-- Name: pagina1app_contacto pagina1app_contacto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pagina1app_contacto
+    ADD CONSTRAINT pagina1app_contacto_pkey PRIMARY KEY (id);
 
 
 --
