@@ -18,7 +18,7 @@
     <b style="font-size: xx-large;">Contacta con nosotros</b>
   </div>
 
-
+<hr>
 
   <div style="margin-left: 40px;"><br/></div>
 
@@ -34,13 +34,23 @@
 
     <br/>
 
+<hr>
+
     <button
-      class="button"
       name="btnEnviar"
-      type="submit">
+      type="submit"
+      class="btn btn-primary"
+      id="btnEnviar">
       Enviar
     </button>
+
+    <input type="reset" value="Cancelar" class="btn btn-secondary">
+
   </form>
+
+
+
+<hr>
 
   {{mensaje}}
   <table id="tablacontactos"></table>
