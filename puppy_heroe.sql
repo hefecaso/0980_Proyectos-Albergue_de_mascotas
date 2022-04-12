@@ -397,6 +397,27 @@ ALTER SEQUENCE public.pagina1app_contacto_id_seq OWNED BY public.pagina1app_cont
 
 
 --
+-- Name: pagina1app_registro_mascota; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.pagina1app_registro_mascota (
+    id_mascota integer NOT NULL,
+    nombre_mascota character varying(100) NOT NULL,
+    sexo_mascota integer NOT NULL,
+    edad_mascota integer NOT NULL,
+    fecha_rescate_mascota date NOT NULL,
+    fecha_vacuna_mascota date NOT NULL,
+    foto_mascota character varying(100) NOT NULL,
+    raza_mascota character varying(100) NOT NULL,
+    vacunas_mascota character varying(60) NOT NULL,
+    CONSTRAINT pagina1app_registro_mascota_edad_mascota_check CHECK ((edad_mascota >= 0)),
+    CONSTRAINT pagina1app_registro_mascota_id_mascota_check CHECK ((id_mascota >= 0))
+);
+
+
+ALTER TABLE public.pagina1app_registro_mascota OWNER TO postgres;
+
+--
 -- Name: auth_group id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -527,8 +548,8 @@ COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
 --
 
 COPY public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
-2	pbkdf2_sha256$320000$BSzx3S0ve1vt0Uu0kTi2FP$+ycfrdO6MeVDGWRVF98BhZY0FEvKrQnsu+q+d5TtTuQ=	2022-04-11 02:24:46.865569-06	f	hefecaso				f	t	2022-04-11 02:24:24.336078-06
-1	pbkdf2_sha256$320000$rDbrzVfKzurE1jDKj5HgLU$wQeymiRFCNE8tq//aOxUvuTPJ+ToFzzFPNcSqJngNz0=	2022-04-11 20:03:20.121533-06	t	admin			admin@admin.com	t	t	2022-04-09 00:39:35.244705-06
+2	pbkdf2_sha256$320000$vO5h9EdBUhnlYXIULAMUHE$XFyt42zAp6nqrPbAkO8cC+qMBdCD6tZy0E9qo0wfx9g=	2022-04-12 12:53:21.304408-06	f	hefecaso				f	t	2022-04-12 12:53:20.774583-06
+1	pbkdf2_sha256$320000$oaduq8BfqgsDaalVjpYJin$0s2xWmA7Ew4dL8fxPoHnO96QUMhvPcb1PXSyHp5O6ck=	2022-04-12 12:53:37.815586-06	t	admin			admin@admin.com	t	t	2022-04-12 12:52:44.4676-06
 \.
 
 
@@ -553,16 +574,6 @@ COPY public.auth_user_user_permissions (id, user_id, permission_id) FROM stdin;
 --
 
 COPY public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) FROM stdin;
-1	2022-04-10 03:27:28.667279-06	5	hefecaso	3		4	1
-2	2022-04-10 03:28:28.376584-06	6	hefecaso	1	[{"added": {}}]	4	1
-3	2022-04-10 03:28:47.882297-06	6	hefecaso	3		4	1
-4	2022-04-10 03:35:45.504004-06	7	hefecaso	1	[{"added": {}}]	4	1
-5	2022-04-10 03:36:23.569797-06	7	hefecaso	3		4	1
-6	2022-04-10 03:53:00.358953-06	8	hefecaso	1	[{"added": {}}]	4	1
-7	2022-04-10 03:53:40.055387-06	8	hefecaso	3		4	1
-8	2022-04-10 04:06:57.388795-06	2	hefecaso	1	[{"added": {}}]	4	1
-9	2022-04-10 04:08:12.882845-06	2	hefecaso	3		4	1
-10	2022-04-11 02:20:36.049296-06	3	hefecaso	3		4	1
 \.
 
 
@@ -587,27 +598,25 @@ COPY public.django_content_type (id, app_label, model) FROM stdin;
 --
 
 COPY public.django_migrations (id, app, name, applied) FROM stdin;
-1	contenttypes	0001_initial	2022-04-09 00:33:25.80295-06
-2	auth	0001_initial	2022-04-09 00:33:27.245802-06
-3	admin	0001_initial	2022-04-09 00:33:27.951919-06
-4	admin	0002_logentry_remove_auto_add	2022-04-09 00:33:28.149049-06
-5	admin	0003_logentry_add_action_flag_choices	2022-04-09 00:33:28.33272-06
-6	contenttypes	0002_remove_content_type_name	2022-04-09 00:33:28.520473-06
-7	auth	0002_alter_permission_name_max_length	2022-04-09 00:33:28.55307-06
-8	auth	0003_alter_user_email_max_length	2022-04-09 00:33:28.576475-06
-9	auth	0004_alter_user_username_opts	2022-04-09 00:33:28.604287-06
-10	auth	0005_alter_user_last_login_null	2022-04-09 00:33:28.63513-06
-11	auth	0006_require_contenttypes_0002	2022-04-09 00:33:28.654561-06
-12	auth	0007_alter_validators_add_error_messages	2022-04-09 00:33:28.680762-06
-13	auth	0008_alter_user_username_max_length	2022-04-09 00:33:28.792061-06
-14	auth	0009_alter_user_last_name_max_length	2022-04-09 00:33:28.833569-06
-15	auth	0010_alter_group_name_max_length	2022-04-09 00:33:28.862682-06
-16	auth	0011_update_proxy_permissions	2022-04-09 00:33:28.889396-06
-17	auth	0012_alter_user_first_name_max_length	2022-04-09 00:33:28.910757-06
-18	sessions	0001_initial	2022-04-09 00:33:29.538158-06
-19	pagina1app	0001_initial	2022-04-10 20:34:43.174769-06
-20	pagina1app	0002_alter_contacto_tipo_consulta	2022-04-11 01:55:44.649768-06
-21	pagina1app	0003_registro_mascota	2022-04-11 20:13:44.600834-06
+1	contenttypes	0001_initial	2022-04-12 12:48:00.111641-06
+2	auth	0001_initial	2022-04-12 12:48:01.629993-06
+3	admin	0001_initial	2022-04-12 12:48:02.051404-06
+4	admin	0002_logentry_remove_auto_add	2022-04-12 12:48:02.117979-06
+5	admin	0003_logentry_add_action_flag_choices	2022-04-12 12:48:02.177921-06
+6	contenttypes	0002_remove_content_type_name	2022-04-12 12:48:02.279243-06
+7	auth	0002_alter_permission_name_max_length	2022-04-12 12:48:02.315843-06
+8	auth	0003_alter_user_email_max_length	2022-04-12 12:48:02.354423-06
+9	auth	0004_alter_user_username_opts	2022-04-12 12:48:02.380039-06
+10	auth	0005_alter_user_last_login_null	2022-04-12 12:48:02.409641-06
+11	auth	0006_require_contenttypes_0002	2022-04-12 12:48:02.43886-06
+12	auth	0007_alter_validators_add_error_messages	2022-04-12 12:48:02.503175-06
+13	auth	0008_alter_user_username_max_length	2022-04-12 12:48:02.606847-06
+14	auth	0009_alter_user_last_name_max_length	2022-04-12 12:48:02.643707-06
+15	auth	0010_alter_group_name_max_length	2022-04-12 12:48:02.682777-06
+16	auth	0011_update_proxy_permissions	2022-04-12 12:48:02.70763-06
+17	auth	0012_alter_user_first_name_max_length	2022-04-12 12:48:02.735317-06
+18	pagina1app	0001_initial	2022-04-12 12:48:03.058967-06
+19	sessions	0001_initial	2022-04-12 12:48:03.768099-06
 \.
 
 
@@ -616,8 +625,7 @@ COPY public.django_migrations (id, app, name, applied) FROM stdin;
 --
 
 COPY public.django_session (session_key, session_data, expire_date) FROM stdin;
-8n6k3i8k8qgmdvp59qzr1fc4y9sgzy0n	e30:1ndTiw:wfC1EzVa_SiaCkNeaXNop817pO9B8SGdw7Ttr_Cqyaw	2022-04-24 03:19:10.449098-06
-xzt6g0wakv0550chxcpk28em4hf4mdfz	.eJxVjEEOwiAQRe_C2pAOtBRcuvcMZIYZpGpoUtqV8e7apAvd_vfef6mI21ri1mSJE6uzAnX63QjTQ-oO-I71Nus013WZSO-KPmjT15nleTncv4OCrXzrfrCAEhxYMGIdZUHoQqJAYAZMNGZPPLK12QH4RODBWDKBGEIPnVPvD94RN4g:1ne5sG:2X2ysWuO9FNRh_igDvcSZY68LutstMJ2kZ3nag791aY	2022-04-25 20:03:20.172534-06
+qdl3b22638qpdmb946nvt7t8o74fsaeo	.eJxVjEEOgjAURO_StWlaoOXXpXvP0Px2fgU1kFBYGe-uJCx0O--9eanI2zrErcoSR6izsur0uyXOD5l2gDtPt1nneVqXMeld0Qet-jpDnpfD_TsYuA7fWtD2QDKBxFMGSSpofGMpW4FhS33hAgkAGzIudY7ZI7eh8Z0NnVPvDxqTOMk:1neLdx:-lzM_Hyj8bqE8mP5vR5jtTFSiN1qHQh3NWvpz5u_Orw	2022-04-26 12:53:37.833502-06
 \.
 
 
@@ -626,26 +634,14 @@ xzt6g0wakv0550chxcpk28em4hf4mdfz	.eJxVjEEOwiAQRe_C2pAOtBRcuvcMZIYZpGpoUtqV8e7apA
 --
 
 COPY public.pagina1app_contacto (id, nombre, correo, tipo_consulta, mensaje, avisos) FROM stdin;
-1	Fernando Carrera	correo@ejemplo.com	0	dfdfsadfassdf	f
-2	Fernando Carrera	correo@ejemplo.com	3	Felicidades! haz logrado crear template contacto!	t
-3	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-4	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-5	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-6	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-7	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-8	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-9	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-10	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-11	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-12	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-13	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-14	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-15	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-16	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-17	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-18	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-19	dsafdsa	dasfdsa@sdafsda.com	0	dsafdsa	f
-20	Fernando Soto	correo@ejemplo.com	3	Recuperamos contacto señores!	t
+\.
+
+
+--
+-- Data for Name: pagina1app_registro_mascota; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.pagina1app_registro_mascota (id_mascota, nombre_mascota, sexo_mascota, edad_mascota, fecha_rescate_mascota, fecha_vacuna_mascota, foto_mascota, raza_mascota, vacunas_mascota) FROM stdin;
 \.
 
 
@@ -695,7 +691,7 @@ SELECT pg_catalog.setval('public.auth_user_user_permissions_id_seq', 1, false);
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.django_admin_log_id_seq', 10, true);
+SELECT pg_catalog.setval('public.django_admin_log_id_seq', 1, false);
 
 
 --
@@ -709,14 +705,14 @@ SELECT pg_catalog.setval('public.django_content_type_id_seq', 8, true);
 -- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.django_migrations_id_seq', 21, true);
+SELECT pg_catalog.setval('public.django_migrations_id_seq', 19, true);
 
 
 --
 -- Name: pagina1app_contacto_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.pagina1app_contacto_id_seq', 20, true);
+SELECT pg_catalog.setval('public.pagina1app_contacto_id_seq', 1, false);
 
 
 --
@@ -861,6 +857,14 @@ ALTER TABLE ONLY public.django_session
 
 ALTER TABLE ONLY public.pagina1app_contacto
     ADD CONSTRAINT pagina1app_contacto_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: pagina1app_registro_mascota pagina1app_registro_mascota_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pagina1app_registro_mascota
+    ADD CONSTRAINT pagina1app_registro_mascota_pkey PRIMARY KEY (id_mascota);
 
 
 --

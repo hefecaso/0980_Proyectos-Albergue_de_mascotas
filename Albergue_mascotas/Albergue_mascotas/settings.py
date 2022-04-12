@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pagina1app',
     'crispy_forms',
+    'multiselectfield',
 ]
 
 MIDDLEWARE = [
