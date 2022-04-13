@@ -94,21 +94,18 @@ def contacto(request):
 #   Configurando el registro para registro mascota  #
 #####################################################
 
+
 def formulario_registro_mascota(request):
+    data = {'form': Registro_mascota_Form()}
 
     if request.method == 'POST':
         #Si me enviaron datos, crear nuevo formulario con los datos enviados
-        form = Registro_mascota_Form(request.POST) #POST es un diccionario con todos los datos
+        form = Registro_mascota_Form(data=request.POST) #POST es un diccionario con todos los datos
 
         if form.is_valid(): #Validando
             form.save()
-            mensaje = "Registro completado"
-            print("Registro correcto")
+            data["mensaje"] = "Mensaje enviado, pronto alguno de nuestros operadores se comunicará contigo"
+        else: #Si no valida
+            data["form"] = formulario
 
-        return redirect('Formulario registro')
-
-    else: #Si no valida
-        form = Registro_mascota_Form()
-        print("Error")
-
-    return render(request, "pagina1app/formulario_registro_mascota.html", {'form':form})
+    return render(request, "pagina1app/formulario_registro_mascota.html", data)

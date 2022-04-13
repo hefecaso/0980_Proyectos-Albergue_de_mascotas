@@ -10,22 +10,22 @@
   </meta>
 
 
-
+  {% load crispy_forms_tags %}
 
   <div class="row">
     <div class="col-12 col-md-6 offset-md-3">
 
       <br>
-      <h2>Registro de mascota</h2>
+      <h2>Contacta con nosotros</h2>
       <br>
 
-      <form class="registro_mascota" action=" " method="get">
+      <form class=" " action=" " method="post">
 
 
 
         {% csrf_token %}
 
-        {{ form.as_p }}
+        {{ form | crispy }}
 
         <br>
 
@@ -37,11 +37,11 @@
 
 
       </form>
-
+      {{mensaje}}
     </div>
   </div>
 
-  <table id="tablaregistro">
+  <table id="tablacontacto">
 
   </table>
 
@@ -51,15 +51,8 @@
 
 {% endblock %}
 
+<!-- Referencias -->
 
+<!-- https://www.youtube.com/watch?v=90M4gunBRLs&t=174s&ab_channel=moisessepulveda -->
 
-
-
-
-
-
-
-
-
-
-<!--{{ form.as_p }}-->
+<!-- method = "post" es para que los datos no aparezcan en la url por cuestiones de seguridad -->

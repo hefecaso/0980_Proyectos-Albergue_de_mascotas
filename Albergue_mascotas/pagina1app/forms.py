@@ -23,17 +23,6 @@ class Registro_mascota_Form(forms.ModelForm):
         #Otra opción, para que aparezca en el orden que tiene en modelo.py podríamos escribir lo siguiente:
         fields = '__all__'
 
-        labels ={
-            'id_mascota': 'ID de la mascota',
-            'nombre_mascota': 'Nombre de la mascota',
-            'sexo_mascota': 'Sexo de la mascota',
-            'edad_mascota': 'Edad de la mascota',
-            'fecha_rescate_mascota': 'Fecha de rescate (DD/MM/AAAA)',
-            'fecha_vacuna_mascota': 'Fecha de vacunación',
-            'foto_mascota': 'Foto de la mascota',
-            'raza_mascota': 'Raza de la mascota',
-            'vacunas_mascota': 'Vacunas de la mascota',
-        }
 
 
 

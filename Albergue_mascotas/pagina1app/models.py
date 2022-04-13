@@ -46,18 +46,15 @@ vacunas_mascota_op = (
 )
 
 class Registro_mascota(models.Model):
-    id_mascota = models.PositiveIntegerField(primary_key=True)
-    nombre_mascota = models.CharField(max_length=100, null=True)
-    sexo_mascota = models.IntegerField(choices=sexo_mascota_op, null=True)
-    edad_mascota = models.PositiveIntegerField(null=True)
-    fecha_rescate_mascota = models.DateField(auto_now_add=False, auto_now=False, null=True)
-    fecha_vacuna_mascota = models.DateField(auto_now_add=False, auto_now=False, null=True)
-    foto_mascota = models.ImageField(upload_to = 'fotos_mascotas', null=True)
-    raza_mascota = models.CharField(max_length=100, blank=True)
-    vacunas_mascota = MultiSelectField(choices=vacunas_mascota_op, null=True)
+    nombre = models.CharField(max_length=100)
+    correo = models.EmailField()
+    tipo_consulta = models.IntegerField(choices=opciones_consultas)
+    mensaje = models.TextField()
+    avisos = models.BooleanField()
+    foto_mascota = models.ImageField(upload_to = 'fotos_mascotas', null=True, blank=False)
 
     def __str__(self):
-        return '{}'.format(self.nombre_mascota)
+        return self.nombre
 
 
 
