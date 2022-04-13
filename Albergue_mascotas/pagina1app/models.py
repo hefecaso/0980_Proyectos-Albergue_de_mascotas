@@ -50,8 +50,8 @@ class Registro_mascota(models.Model):
     nombre_mascota = models.CharField(max_length=100)
     sexo_mascota = models.IntegerField(choices=sexo_mascota_op)
     edad_mascota = models.PositiveIntegerField()
-    fecha_rescate_mascota = models.DateField(auto_now_add=False, auto_now=False)
-    fecha_vacuna_mascota = models.DateField(auto_now_add=False, auto_now=False)
+    fecha_rescate_mascota = models.DateField(auto_now_add=False, auto_now=False,blank=True)
+    fecha_vacuna_mascota = models.DateField(auto_now_add=False, auto_now=False, blank=True)
     foto_mascota = models.ImageField(upload_to = 'fotos_mascotas', null=True, blank=False)
     raza_mascota = models.CharField(max_length=100, blank=True)
     vacunas_mascota = MultiSelectField(choices=vacunas_mascota_op, null=True)
@@ -70,7 +70,9 @@ class Registro_mascota(models.Model):
 #create database puppy_heroe;
 
 
-#Para las fotos: https://www.youtube.com/watch?v=miaOMvHw4nw&t=178s&ab_channel=codigofacilito
+#Para las fotos:
+#https://www.youtube.com/watch?v=miaOMvHw4nw&t=178s&ab_channel=codigofacilito
+#https://youtu.be/D94NBN4bO1g?t=94
 
 #Referencia formularios
 # https://www.youtube.com/watch?v=HDz6lqZ91rE&t=554s
