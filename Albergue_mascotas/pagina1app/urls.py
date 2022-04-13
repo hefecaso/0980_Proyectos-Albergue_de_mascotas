@@ -2,7 +2,8 @@ from django.urls import path
 #importamos de la primer app lo relacionado
 #a las vistas
 from pagina1app import views
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
 
@@ -16,3 +17,6 @@ urlpatterns = [
     path('formulario_adopcion/',views.formulario_adopcion, name="Formulario adopcion"),
     path('registro/',views.registro, name="Formulario Registro"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

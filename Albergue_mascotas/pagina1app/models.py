@@ -47,17 +47,17 @@ vacunas_mascota_op = (
 
 class Registro_mascota(models.Model):
     id_mascota = models.PositiveIntegerField(primary_key=True)
-    nombre_mascota = models.CharField(max_length=100)
-    sexo_mascota = models.IntegerField(choices=sexo_mascota_op)
-    edad_mascota = models.PositiveIntegerField()
-    fecha_rescate_mascota = models.DateField(auto_now_add=False, auto_now=False, blank=True)
-    fecha_vacuna_mascota = models.DateField(auto_now_add=False, auto_now=False, blank=True)
-    foto_mascota = models.ImageField(upload_to = 'fotos_mascotas')
-    raza_mascota = models.CharField(max_length=100)
-    vacunas_mascota = MultiSelectField(choices=vacunas_mascota_op)
+    nombre_mascota = models.CharField(max_length=100, null=True)
+    sexo_mascota = models.IntegerField(choices=sexo_mascota_op, null=True)
+    edad_mascota = models.PositiveIntegerField(null=True)
+    fecha_rescate_mascota = models.DateField(auto_now_add=False, auto_now=False, null=True)
+    fecha_vacuna_mascota = models.DateField(auto_now_add=False, auto_now=False, null=True)
+    foto_mascota = models.ImageField(upload_to = 'fotos_mascotas', null=True)
+    raza_mascota = models.CharField(max_length=100, blank=True)
+    vacunas_mascota = MultiSelectField(choices=vacunas_mascota_op, null=True)
 
     def __str__(self):
-        return self.nombre_mascota
+        return '{}'.format(self.nombre_mascota)
 
 
 

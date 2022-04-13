@@ -102,9 +102,13 @@ def formulario_registro_mascota(request):
 
         if form.is_valid(): #Validando
             form.save()
+            mensaje = "Registro completado"
+            print("Registro correcto")
+
         return redirect('Formulario registro')
 
     else: #Si no valida
         form = Registro_mascota_Form()
+        print("Error")
 
     return render(request, "pagina1app/formulario_registro_mascota.html", {'form':form})
