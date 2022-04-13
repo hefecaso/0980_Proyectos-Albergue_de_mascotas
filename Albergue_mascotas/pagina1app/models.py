@@ -45,6 +45,8 @@ vacunas_mascota_op = (
     ("parainfluenza", "Parainfluenza")
 )
 
+
+
 class Registro_mascota(models.Model):
     id_mascota = models.PositiveIntegerField(primary_key=True)
     nombre_mascota = models.CharField(max_length=100)
