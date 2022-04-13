@@ -1,6 +1,6 @@
 from  django import forms
 from django.contrib.auth.forms import  UserCreationForm
-from .models import Contacto, Registro_mascota
+from .models import Contacto, Registro_mascota, Solicitud_adopcion
 
 class CustomUserCreationForm(UserCreationForm):
     pass
@@ -36,6 +36,25 @@ class Registro_mascota_Form(forms.ModelForm):
         }
 
 
+class Solicitud_adopcion_Form(forms.ModelForm):
+    #Tomamos datos desde el modelo definido en models
+    class Meta:
+        model = Solicitud_adopcion
+        #Asegurarse que los siguientes campos estén en el modelo, aparecera en el orden escrito
+        #fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
+        #Otra opción, para que aparezca en el orden que tiene en modelo.py podríamos escribir lo siguiente:
+        fields = '__all__'
+
+        labels ={
+            'nombres': 'Nombres',
+            'apellidos': 'Apellidos',
+            'edad': 'Edad',
+            'correo': 'Correo',
+            'telefono': 'Teléfono',
+            'domicilio': 'Domicilio',
+            'id_mascota': 'ID de la mascota',
+            'razon': 'Raza de la adopción',
+        }
 
 
 

@@ -48,24 +48,32 @@ vacunas_mascota_op = (
 
 
 class Registro_mascota(models.Model):
-    id_mascota = models.PositiveIntegerField(primary_key=True)
+    id_mascota = models.PositiveIntegerField()
     nombre_mascota = models.CharField(max_length=100)
-    sexo_mascota = models.IntegerField(choices=sexo_mascota_op)
-    edad_mascota = models.PositiveIntegerField()
     fecha_rescate_mascota = models.DateField(auto_now_add=False, auto_now=False,blank=True)
     fecha_vacuna_mascota = models.DateField(auto_now_add=False, auto_now=False, blank=True)
     foto_mascota = models.ImageField(upload_to = 'fotos_mascotas', null=True, blank=False)
+    raza_mascota = models.CharField(max_length=100, blank=True)
+    vacunas_mascota = MultiSelectField(choices=vacunas_mascota_op, null=True)
+    foto_mascota = models.ImageField(upload_to = 'fotos_mascotas', null=False, blank=False)
     raza_mascota = models.CharField(max_length=100)
     vacunas_mascota = MultiSelectField(choices=vacunas_mascota_op)
-
     def __str__(self):
         return self.nombre_mascota
 
 
+class Solicitud_adopcion(models.Model):
+    nombres = models.CharField(max_length=100)
+    apellidos = models.CharField(max_length=100)
+    edad = models.PositiveIntegerField()
+    correo = models.EmailField()
+    telefono = models.PositiveIntegerField()
+    domicilio = models.CharField(max_length=1000)
+    id_mascota = models.PositiveIntegerField()
+    razon = models.TextField()
 
-
-
-
+    def __str__(self):
+        return self.nombres
 
 #Para postgres
 #DROP DATABASE puppy_heroe;

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'pagina1app',
     'crispy_forms',
     'multiselectfield',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [

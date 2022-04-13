@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.http import HttpResponse
-from .forms import CustomUserCreationForm, ContactoForm, Registro_mascota_Form
+from .forms import CustomUserCreationForm, ContactoForm, Registro_mascota_Form, \
+Solicitud_adopcion_Form
 
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -95,16 +96,42 @@ def contacto(request):
 #####################################################
 
 def formulario_registro_mascota(request):
+
     data = {'form': Registro_mascota_Form()}
 
     if request.method == 'POST':
         #Si me enviaron datos, crear nuevo formulario con los datos enviados
-        form = Registro_mascota_Form(data=request.POST) #POST es un diccionario con todos los datos
+        formulario = Registro_mascota_Form(data=request.POST) #POST es un diccionario con todos los datos
 
-        if form.is_valid(): #Validando
-            form.save()
-            data["mensaje"] = "Registro completado"
+        if formulario.is_valid(): #Validando
+            formulario.save()
+            data["mensaje"] = "Mensaje enviado, pronto alguno de nuestros operadores se comunicará contigo"
+            return redirect('Formulario registro')
         else: #Si no valida
             data["form"] = formulario
+            return redirect('Formulario registro')
 
-    return render(request, "pagina1app/formulario_registro_mascota.html", data)
+    return render(request, "pagina1app/contacto.html", data)
+
+
+##########################################
+#   Configurando el solicitud adpocion  #
+#########################################
+
+def formulario_adopcion(request):
+
+    data = {'form': Solicitud_adopcion_Form()}
+
+    if request.method == 'POST':
+        #Si me enviaron datos, crear nuevo formulario con los datos enviados
+        formulario = Solicitud_adopcion_Form(data=request.POST) #POST es un diccionario con todos los datos
+
+        if formulario.is_valid(): #Validando
+            formulario.save()
+            data["mensaje"] = "Solicitud enviada, pronto alguno de nuestros operadores se comunicará contigo"
+            return redirect('Formulario adopcion')
+        else: #Si no valida
+            data["form"] = formulario
+            return redirect('Formulario adopcion')
+
+    return render(request, "pagina1app/formulario_adopcion.html", data)
