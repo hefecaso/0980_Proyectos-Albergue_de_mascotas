@@ -1,9 +1,17 @@
 from  django import forms
 from django.contrib.auth.forms import  UserCreationForm
 from .models import Contacto
+from django.contrib.auth.models import User
 
 class CustomUserCreationForm(UserCreationForm):
-    pass
+    #pass
+    class Meta:
+        model = User
+        fields = ['username', "first_name", "last_name", "email", "password1", "password2" ]
+
+
+
+
 
 class ContactoForm(forms.ModelForm):
     #Tomamos datos desde el modelo definido en models
@@ -13,7 +21,6 @@ class ContactoForm(forms.ModelForm):
         fields = ["nombre", "correo", "tipo_consulta", "mensaje", "avisos"]
         #Otra opción, para que aparezca en el orden que tiene en modelo.py podríamos escribir lo siguiente:
         #fields = '__all__'
-
 
 
 
