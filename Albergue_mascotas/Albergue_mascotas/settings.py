@@ -150,7 +150,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-
+'''
 ################
 #   Imágenes  #
 ###############
@@ -158,4 +158,4 @@ LOGOUT_REDIRECT_URL = '/'
 import os
 
 MEDIA_URL = '/media_formularios/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "foto_mascota")
+MEDIA_ROOT = os.path.join(BASE_DIR, "fotos_mascotas")

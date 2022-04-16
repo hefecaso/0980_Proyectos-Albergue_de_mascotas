@@ -1,6 +1,6 @@
 from  django import forms
 from django.contrib.auth.forms import  UserCreationForm
-from .models import Contacto, Registro_mascota, Solicitud_adopcion
+from .models import Contacto, Registro_mascota, Solicitud_adopcion, Foto_mascota
 
 class CustomUserCreationForm(UserCreationForm):
     pass
@@ -24,17 +24,23 @@ class Registro_mascota_Form(forms.ModelForm):
         fields = '__all__'
 
         labels ={
-            'id_mascota': 'ID de la mascota (#DDMMAAAAK)',
-            'nombre_mascota': 'Nombre de la mascota',
-            'sexo_mascota': 'Sexo de la mascota',
-            'edad_mascota': 'Edad de la mascota',
-            'fecha_rescate_mascota': 'Fecha de rescate (DD/MM/AAAA)',
-            'fecha_vacuna_mascota': 'Fecha de vacunación (DD/MM/AAAA)',
-            'foto_mascota': 'Foto de la mascota',
-            'raza_mascota': 'Raza de la mascota',
-            'vacunas_mascota': 'Vacunas de la mascota',
+            'id_mascota': 'ID de la mascota (#DDMMAAAAK) \n',
+            'nombre_mascota': 'Nombre de la mascota \n',
+            'sexo_mascota': 'Sexo de la mascota \n',
+            'edad_mascota': 'Edad de la mascota \n',
+            'fecha_rescate_mascota': 'Fecha de rescate (DD/MM/AAAA) \n',
+            'fecha_vacuna_mascota': 'Fecha de vacunación (DD/MM/AAAA) \n',
+            'raza_mascota': 'Raza de la mascota \n',
+            'vacunas_mascota': 'Vacunas de la mascota \n',
         }
 
+class  Foto_mascota_Form(forms.ModelForm):
+    class  Meta:
+        model = Foto_mascota
+        fields = '__all__'
+        label = {
+        'foto_mascota': 'Foto de la mascota \n',
+        }
 
 class Solicitud_adopcion_Form(forms.ModelForm):
     #Tomamos datos desde el modelo definido en models
@@ -55,7 +61,6 @@ class Solicitud_adopcion_Form(forms.ModelForm):
             'id_mascota': 'ID de la mascota',
             'razon': 'Raza de la adopción',
         }
-
 
 
 '''

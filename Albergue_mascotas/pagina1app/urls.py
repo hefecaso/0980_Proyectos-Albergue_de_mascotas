@@ -8,14 +8,15 @@ from django.conf.urls.static import static
 urlpatterns = [
 
     path('',views.home, name="Home"),
-    path('servicios/',views.servicios, name="Servicios"),
-    path('albergue/',views.albergue, name="Albergue"),
+    path('servicios/', views.servicios, name="Servicios"),
+    path('albergue/', views.albergue, name="Albergue"),
     #path('iniciosesion',views.iniciosesion, name="Inicio de sesión"),
-    path('contacto/',views.contacto, name="Contacto"),
-    path('registro_y_adopcion/',views.registro_y_adopcion, name="Formularios registro y adopcion"),
-    path('formulario_registro_mascota/',views.formulario_registro_mascota, name="Formulario registro"),
-    path('formulario_adopcion/',views.formulario_adopcion, name="Formulario adopcion"),
-    path('registro/',views.registro, name="Formulario Registro"),
+    path('contacto/', views.contacto, name="Contacto"),
+    path('registro_y_adopcion/', views.registro_y_adopcion, name="Formularios registro y adopcion"),
+    path('formulario_registro_mascota/', views.formulario_registro_mascota, name="Formulario registro"),
+    path('formulario_adopcion/', views.formulario_adopcion, name="Formulario adopcion"),
+    path('registro/', views.registro, name="Formulario Registro"),
+    path('foto_mascota/', views.formulario_foto_mascota, name="Foto mascota"),
 ]
 
 if settings.DEBUG:

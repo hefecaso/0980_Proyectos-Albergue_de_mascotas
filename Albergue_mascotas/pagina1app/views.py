@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.http import HttpResponse
 from .forms import CustomUserCreationForm, ContactoForm, Registro_mascota_Form, \
-Solicitud_adopcion_Form
+Solicitud_adopcion_Form, Foto_mascota_Form
 
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -106,12 +106,13 @@ def formulario_registro_mascota(request):
         if formulario.is_valid(): #Validando
             formulario.save()
             data["mensaje"] = "Registro completado"
-            return redirect('Formulario registro')
+            return redirect('Foto mascota')
+
         else: #Si no valida
             data["form"] = formulario
-            return redirect('Formulario registro')
+            return redirect('Foto mascota')
 
-    return render(request, "pagina1app/contacto.html", data)
+    return render(request, "pagina1app/formulario_registro_mascota.html", data)
 
 
 ##########################################
@@ -129,9 +130,34 @@ def formulario_adopcion(request):
         if formulario.is_valid(): #Validando
             formulario.save()
             data["mensaje"] = "Solicitud enviada, pronto alguno de nuestros operadores se comunicará contigo"
-            return redirect('Formulario adopcion')
+
+
         else: #Si no valida
             data["form"] = formulario
-            return redirect('Formulario adopcion')
+            #return redirect('Foto mascota')
+
+            #return redirect('Foto mascota')
 
     return render(request, "pagina1app/formulario_adopcion.html", data)
+
+#####################################
+#   Solicitando foto de la mascota  #
+#####################################
+
+def formulario_foto_mascota(request):
+
+    data = {'form': Foto_mascota_Form()}
+
+    if request.method == 'POST':
+        #Si me enviaron datos, crear nuevo formulario con los datos enviados
+        formulario = Foto_mascota_Form(data=request.POST) #POST es un diccionario con todos los datos
+
+        if formulario.is_valid(): #Validando
+            formulario.save()
+            data["mensaje"] = "Registro completado"
+            #return redirect('Foto mascota')
+        else: #Si no valida
+            data["form"] = formulario
+            #return redirect('Foto mascota')
+
+    return render(request, "pagina1app/foto_mascota.html", data)
