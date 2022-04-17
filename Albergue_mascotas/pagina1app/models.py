@@ -59,7 +59,7 @@ class Registro_mascota(models.Model):
 
 class Foto_mascota(models.Model):
     id_mascota = models.PositiveIntegerField()
-    foto_mascota = models.ImageField(upload_to=f'fotos_mascotas/{id_mascota}', blank=True)
+    foto_mascota = models.ImageField(upload_to='fotos_mascotas', blank=True)
     def __str__(self):
         return self.foto_mascota
 
