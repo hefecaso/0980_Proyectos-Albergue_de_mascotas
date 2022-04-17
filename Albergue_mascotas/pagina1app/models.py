@@ -58,7 +58,7 @@ class Registro_mascota(models.Model):
 
 
 class Foto_mascota(models.Model):
-    foto_mascota = models.ImageField(upload_to='fotos_mascotas', null=False, blank=True)
+    foto_mascota = models.ImageField(upload_to='fotos_mascotas', blank=True)
     def __str__(self):
         return self.foto_mascota
 
