@@ -52,9 +52,9 @@ class Registro_mascota(models.Model):
     nombre_mascota = models.CharField(max_length=100)
     fecha_rescate_mascota = models.DateField(auto_now_add=False, auto_now=False)
     fecha_vacuna_mascota = models.DateField(auto_now_add=False, auto_now=False)
-    foto_mascota = models.ImageField(upload_to = 'fotos_mascotas', null=True, blank=True)
+    foto_mascota = models.ImageField(upload_to = 'fotos_mascotas', blank=True)
     raza_mascota = models.CharField(max_length=100)
-    vacunas_mascota = MultiSelectField(choices=vacunas_mascota_op, null=True)
+    vacunas_mascota = MultiSelectField(choices=vacunas_mascota_op)
     def __str__(self):
         return self.nombre_mascota
 
