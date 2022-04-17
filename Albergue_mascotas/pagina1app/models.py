@@ -45,14 +45,14 @@ vacunas_mascota_op = (
     ("parainfluenza", "Parainfluenza")
 )
 
-
-
 class Registro_mascota(models.Model):
     id_mascota = models.PositiveIntegerField(primary_key=True)
     nombre_mascota = models.CharField(max_length=100)
+    sexo_mascota = models.IntegerField(choices=sexo_mascota_op)
+    edad_mascota = models.PositiveIntegerField()
     fecha_rescate_mascota = models.DateField(auto_now_add=False, auto_now=False)
     fecha_vacuna_mascota = models.DateField(auto_now_add=False, auto_now=False)
-    foto_mascota = models.ImageField(upload_to = 'fotos_mascotas', null=True, blank=True)
+    foto_mascota = models.ImageField(upload_to = 'fotos_mascotas', null=True)
     raza_mascota = models.CharField(max_length=100)
     vacunas_mascota = MultiSelectField(choices=vacunas_mascota_op)
     def __str__(self):
@@ -80,6 +80,7 @@ class Solicitud_adopcion(models.Model):
 #Para las fotos:
 #https://www.youtube.com/watch?v=miaOMvHw4nw&t=178s&ab_channel=codigofacilito
 #https://youtu.be/D94NBN4bO1g?t=94
+#https://www.youtube.com/watch?v=KSFCQud4avc&ab_channel=moisessepulveda
 
 #Referencia formularios
 # https://www.youtube.com/watch?v=HDz6lqZ91rE&t=554s

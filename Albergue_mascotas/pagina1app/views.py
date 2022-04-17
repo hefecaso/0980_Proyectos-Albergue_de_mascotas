@@ -105,6 +105,7 @@ def formulario_registro_mascota(request):
 
         if formulario.is_valid(): #Validando
             formulario.save()
+            formulario.foto_mascota = request.FILES.get('txtImagen')
             data["mensaje"] = "Registro completado"
             #return redirect('Formulario registro')
         else: #Si no valida
