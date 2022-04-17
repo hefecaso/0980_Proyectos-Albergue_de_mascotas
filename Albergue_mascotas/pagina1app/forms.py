@@ -39,6 +39,7 @@ class  Foto_mascota_Form(forms.ModelForm):
         model = Foto_mascota
         fields = '__all__'
         label = {
+        'id_mascota': 'Confirmar ID de la mascota (#DDMMAAAAK) \n',
         'foto_mascota': 'Foto de la mascota \n',
         }
 
