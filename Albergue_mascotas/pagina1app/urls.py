@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 #importamos de la primer app lo relacionado
 #a las vistas
 from pagina1app import views

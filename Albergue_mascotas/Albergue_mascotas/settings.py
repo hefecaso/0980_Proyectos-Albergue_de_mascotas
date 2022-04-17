@@ -154,9 +154,8 @@ LOGOUT_REDIRECT_URL = '/'
 ################
 #   Imágenes  #
 ###############
-'''
+
 import os
 
-MEDIA_URL = '/media_formularios/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "foto_mascota")
-'''
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
