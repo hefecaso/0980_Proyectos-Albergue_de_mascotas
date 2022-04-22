@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pagina1app',
     'crispy_forms',
+    'multiselectfield',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -155,3 +157,13 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+
+################
+#   Imágenes  #
+###############
+
+import os
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")

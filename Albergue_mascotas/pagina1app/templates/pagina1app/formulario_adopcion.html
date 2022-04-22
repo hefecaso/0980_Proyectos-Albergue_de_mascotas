@@ -1,214 +1,60 @@
-<meta
-  http-equiv="content-type"
-  content="text/html; charset=utf-8">
-</meta>
-
+<!-- Heredando de base -->
 {% extends "pagina1app/base.html" %} {% load static %} {% block content %}
-
 <header
-  class="header"
-  style="background-color: white;">
-  <meta
-    http-equiv="X-UA-Compatible"
-    content="IE=edge">
-  </meta>
+
+  style="background-color: white;"
 
   <meta
-    name="description"
-    content>
+    http-equiv="content-type"
+    content="text/html; charset=windows-1252">
   </meta>
 
-  <meta
-    name="author"
-    content>
-  </meta>
 
-  <title>New page</title>
+  {% load crispy_forms_tags %}
 
-  <link
-    href="css/style.css"
-    rel="stylesheet">
-  </link>
+  <div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
 
-  <link
-    href="https://fonts.googleapis.com/css?family=Alatsi&display=swap"
-    rel="stylesheet">
-  </link>
+      <br>
+      <h2>Formulario de adopción</h2>
+      <br>
 
-  <link
-    href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap"
-    rel="stylesheet">
-  </link>
+      <form class=" " action=" " method="post">
 
-  <link
-    href="https://fonts.googleapis.com/css?family=Capriola&display=swap"
-    rel="stylesheet">
-  </link>
 
-  <div style="text-align: center;">
-    <a
-      class="logo_link"
-      name="anchor">
-      <img
-        class="logo_img"
-        alt="encabezado"
-        src="../../static/Formulario_registro_mascota/image/que-prefiere-la-gente-perros-o-gatos.jpg"
-        style="width: 419px; height: 202px;"
-        title="encabezado"/>
-    </a>
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <br>
+
+        <div class="d-flex justify-content-end">
+          <input type="reset" class="btn btn-secondary" value="Cancelar">
+          &nbsp;
+          <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+        </div>
+
+
+      </form>
+      {{mensaje}}
+    </div>
   </div>
 
-  <!-- Navegación -->
+  <table id="tablacontacto">
 
-  <header
-    class="header"
-    style="background-color: white;">
-    <!-- Campos del formulario -->
+  </table>
 
-    <br/>
 
-    <p style="background-color: white; margin-left: 40px;"><b>Nombres:</b></p>
+{% endblock %}
 
-    <div style="margin-left: 40px;">
-      <input
-        name="nombre"
-        size="70"
-        maxlength="900"
-        type="text"/>
-    </div>
 
-    <br/>
 
-    <div style="margin-left: 40px;"><strong>Apellidos:</strong><br/></div>
 
-    <div style="margin-left: 40px;">
-      <input
-        name="apellidos"
-        size="70"
-        maxlength="900"
-        type="text"/>
-    </div>
 
-    <div style="margin-left: 40px;"><br/></div>
 
-    <div style="margin-left: 40px;"><strong>Edad:</strong></div>
 
-    <div style="margin-left: 40px;">
-      <input
-        min="1"
-        max="100"
-        name="edad"
-        type="number"/>
-    </div>
 
-    <div style="margin-left: 40px;"><br/><strong></strong><strong></strong></div>
 
-    <div style="margin-left: 40px;"><strong>Correo electrónico:</strong></div>
 
-    <div style="margin-left: 40px;">
-      <input
-        name="correo"
-        form="correo"
-        placeholder="correo"
-        size="70"
-        maxlength="100"
-        type="email"/>
-    </div>
-
-    <div style="margin-left: 40px;"><strong><br/></strong></div>
-
-    <div style="margin-left: 40px;"><strong>Teléfono:</strong></div>
-
-    <div style="margin-left: 40px;">
-      <input
-        name="numero_tel"
-        form="numero_tel"
-        placeholder="numero_tel"
-        size="10"
-        maxlength="8"
-        type="tel"/>
-    </div>
-
-    <div style="margin-left: 40px;">
-      <strong></strong>
-
-      <br/>
-
-      <strong></strong>
-
-      <strong></strong>
-
-      <strong>Domicilio:</strong>
-    </div>
-
-    <div style="margin-left: 40px;">
-      <strong></strong>
-
-      <input
-        name="domicilio"
-        form="domicilio"
-        placeholder="domicilio"
-        size="70"
-        maxlength="100"
-        type="email"/>
-    </div>
-
-    <div style="margin-left: 40px;"><br/></div>
-
-    <div style="margin-left: 40px;"><strong>ID mascota:</strong></div>
-
-    <div style="margin-left: 40px;">
-      <input
-        min="1"
-        max="1000"
-        name="id_mascota"
-        type="number"/>
-    </div>
-
-    <div style="margin-left: 40px;"><br/></div>
-
-    <div style="margin-left: 40px;"><strong>Razones para adoptar:</strong></div>
-
-    <div style="margin-left: 40px;">
-      <textarea
-        name="Raozones para adoptar"
-        cols="70"
-        rows="10">
-      </textarea>
-    </div>
-
-    <div style="margin-left: 40px;"><strong></strong><br/></div>
-
-    <strong></strong>
-
-    <strong><!-- Botones de envío --><br/></strong>
-
-    <br/>
-
-    <form
-      method="post"
-      style="margin-left: 40px;">
-      {% csrf_token %} {{ form }}
-
-      <button
-        type="submit"
-        value="Enviar">
-        Enviar
-      </button>
-
-      <button
-        type="reset"
-        value="Reestablecer">
-        Reiniciar
-      </button>
-    </form>
-
-    <ul class="menu"></ul>
-
-    <ul class="menu"></ul>
-  </header>
-
-  <main class="main pg-empty-placeholder"></main>
-
-  {% endblock %}
-</header>
+<!--{{ form.as_p }}-->

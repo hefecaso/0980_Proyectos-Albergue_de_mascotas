@@ -1,314 +1,62 @@
-<meta
-  http-equiv="content-type"
-  content="text/html; charset=utf-8">
-</meta>
-
+<!-- Heredando de base -->
 {% extends "pagina1app/base.html" %} {% load static %} {% block content %}
-
 <header
-  class="header"
-  style="background-color: white;">
-  <meta
-    http-equiv="X-UA-Compatible"
-    content="IE=edge">
-  </meta>
+
+  style="background-color: white;"
 
   <meta
-    name="description"
-    content>
+    http-equiv="content-type"
+    content="text/html; charset=windows-1252">
   </meta>
 
-  <meta
-    name="author"
-    content>
-  </meta>
 
-  <title>New page</title>
+  {% load crispy_forms_tags %}
 
-  <link
-    href="css/style.css"
-    rel="stylesheet">
-  </link>
+  <div class="row">
+    <div class="col-12 col-md-6 offset-md-3">
 
-  <link
-    href="https://fonts.googleapis.com/css?family=Alatsi&display=swap"
-    rel="stylesheet">
-  </link>
+      <br>
+      <h2>Regitro de mascotas</h2>
+      <br>
 
-  <link
-    href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap"
-    rel="stylesheet">
-  </link>
+      <form class=" " action=" " method="post" enctype="multipart/form-data">
 
-  <link
-    href="https://fonts.googleapis.com/css?family=Capriola&display=swap"
-    rel="stylesheet">
-  </link>
 
-  <div style="text-align: center;">
-    <a
-      class="logo_link"
-      name="anchor">
-      <img
-        class="logo_img"
-        alt="encabezado"
-        src="../../static/Formulario_registro_mascota/image/que-prefiere-la-gente-perros-o-gatos.jpg"
-        style="width: 419px; height: 202px;"
-        title="encabezado"/>
-    </a>
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <!--<label>Foto de la mascota</label>-->
+        <!--<input type="file" name="txtImagen" id="txtImagen">-->
+        <br>
+
+        <div class="d-flex justify-content-end">
+          <input type="reset" class="btn btn-secondary" value="Cancelar">
+          &nbsp;
+          <button type="submit" id="btnEnviar" class="btn btn-primary">Enviar</button>
+        </div>
+
+
+      </form>
+      {{mensaje}}
+    </div>
   </div>
 
-  <!-- Navegación -->
+  <table id="tablacontacto">
 
-  <header
-    class="header"
-    style="background-color: white;">
-    <!-- Campos del formulario -->
+  </table>
 
-    <br/>
 
-    <p style="background-color: white; margin-left: 40px;">
-      <strong>ID mascota:</strong>
+{% endblock %}
 
-      <br/>
 
-      <input
-        min="1"
-        max="1000"
-        name="id_mascota"
-        size="80"
-        type="number"/>
-    </p>
 
-    <p style="background-color: white; margin-left: 40px;"><b>Nombre de la mascota:</b></p>
 
-    <div style="margin-left: 40px;">
-      <input
-        name="nombre_mascota"
-        size="70"
-        maxlength="900"
-        type="text"/>
-    </div>
 
-    <br/>
 
-    <div style="margin-left: 40px;">
-      <strong>Sexo de la mascota:</strong>
 
-      <br/>
 
-      <strong></strong>
 
-      <br/>
 
-      <strong></strong>
-
-      <input
-        name="hembra"
-        value="hembra"
-        form="hembra"
-        type="checkbox"/>
-      Hembra
-
-      <br/>
-
-      <strong></strong>
-
-      <input
-        name="macho"
-        value="macho"
-        form="macho"
-        type="checkbox"/>
-      Macho
-    </div>
-
-    <strong></strong>
-
-    <br/>
-
-    <div style="margin-left: 40px;">
-      <strong>Edad aproximada:</strong>
-
-      <br/>
-
-      <input
-        min="1"
-        max="1000"
-        name="edad_mascota"
-        size="80"
-        value="edad_mascota"
-        type="number"/>
-    </div>
-
-    <strong></strong>
-
-    <br/>
-
-    <div style="margin-left: 40px;">
-      <strong>Fecha de rescate:</strong>
-
-      <br/>
-
-      <strong>
-        <input
-          min="100"
-          max="30"
-          name="fecharescate"
-          type="date"/>
-      </strong>
-    </div>
-
-    <br/>
-
-    <div style="margin-left: 40px;">
-      <b>Vacunación:</b>
-
-      <br/>
-
-      <input
-        autocomplete="off"
-        min="100"
-        max="30"
-        name="fechavacuna"
-        type="date"/>
-    </div>
-
-    <br/>
-
-    <div style="margin-left: 40px;">
-      <strong>Foto de la mascota:</strong>
-
-      <strong></strong>
-
-      <br/>
-
-      <strong>
-        <input
-          name="imagen_mascota"
-          value="imagen_mascota"
-          required="required"
-          type="file"/>
-      </strong>
-    </div>
-
-    <strong><span style="color: white;"></span></strong>
-
-    <br/>
-
-    <div style="margin-left: 40px;">
-      <strong><span style="color: white;"><span style="color: black;">Raza:</span></span></strong>
-
-      <br/>
-
-      <strong>
-        <input
-          name="raza"
-          size="30"
-          maxlength="100"
-          type="text"/>
-      </strong>
-    </div>
-
-    <strong></strong>
-
-    <br/>
-
-    <div style="margin-left: 40px;">
-      <strong>Vacunas:</strong>
-
-      <br/>
-
-      <strong></strong>
-
-      <br/>
-
-      <input
-        name="rabia"
-        value="rabia"
-        form="vacunas"
-        type="checkbox"/>
-      Rabia
-
-      <br/>
-
-      <strong></strong>
-
-      <input
-        name="distemper"
-        value="distemper"
-        form="vacunas"
-        type="checkbox"/>
-      Distemper
-
-      <br/>
-
-      <strong></strong>
-
-      <input
-        name=" parvovirus"
-        value=" parvovirus"
-        form="vacunas"
-        type="checkbox"/>
-      Parvovirus
-    </div>
-
-    <div style="margin-left: 40px;">
-      <input
-        name="leptospirosis"
-        value="leptospirosis"
-        form="vacunas"
-        type="checkbox"/>
-      Leptospirosis
-    </div>
-
-    <div style="margin-left: 40px;">
-      <input
-        name="hepatitis"
-        value="hepatitis"
-        form="vacunas"
-        type="checkbox"/>
-      Hepatitis canina
-    </div>
-
-    <div style="margin-left: 40px;">
-      <input
-        name="parainfluenza"
-        value="parainfluenza"
-        form="vacunas"
-        type="checkbox"/>
-      Parainfluenza
-    </div>
-
-    <strong></strong>
-
-    <strong><br/><!-- Botones de envío --><br/></strong>
-
-    <br/>
-
-    <form
-      method="post"
-      style="margin-left: 40px;">
-      {% csrf_token %} {{ form }}
-
-      <button
-        type="submit"
-        value="Enviar">
-        Enviar
-      </button>
-
-      <button
-        type="reset"
-        value="Reestablecer">
-        Reiniciar
-      </button>
-    </form>
-
-    <ul class="menu"></ul>
-
-    <ul class="menu"></ul>
-  </header>
-
-  <main class="main pg-empty-placeholder"></main>
-
-  {% endblock %}
-</header>
+<!--{{ form.as_p }}-->

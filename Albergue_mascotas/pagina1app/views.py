@@ -1,6 +1,7 @@
-from django.shortcuts import render, HttpResponse
-
-from .forms import CustomUserCreationForm, ContactoForm
+from django.shortcuts import render, HttpResponse, redirect
+from django.http import HttpResponse
+from .forms import CustomUserCreationForm, ContactoForm, Registro_mascota_Form, \
+Solicitud_adopcion_Form
 
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -10,6 +11,7 @@ from django.contrib.auth import authenticate, login
 from django.core.mail import send_mail
 from django.conf import settings
 # Create your views here.
+from .models import Registro_mascota
 
 
 def home(request):
@@ -21,7 +23,11 @@ def servicios(request):
 
 
 def albergue(request):
-    return render(request, "pagina1app/albergue.html")
+    registro = Registro_mascota.objects.all()
+    data = {
+        'registro': registro
+    }
+    return render(request, "pagina1app/albergue.html",data)
 
 
 '''
@@ -80,12 +86,12 @@ def contacto(request):
     data = {'form': ContactoForm()}
 
     if request.method == 'POST':
+        #Si me enviaron datos, crear nuevo formulario con los datos enviados
         subject=request.POST["nombre"]
         message=request.POST["mensaje"] + " " + request.POST["correo"]
         email_from=settings.EMAIL_HOST_USER
         recipient_list=["alberguemascotas93@gmail.com"]
         send_mail(subject, message, email_from, recipient_list)
-        #Si me enviaron datos, crear nuevo formulario con los datos enviados
         formulario = ContactoForm(data=request.POST) #POST es un diccionario con todos los datos
 
         if formulario.is_valid(): #Validando
@@ -95,3 +101,49 @@ def contacto(request):
             data["form"] = formulario
 
     return render(request, "pagina1app/contacto.html", data)
+
+#####################################################
+#   Configurando el registro para registro mascota  #
+#####################################################
+
+def formulario_registro_mascota(request):
+
+    data = {'form': Registro_mascota_Form()}
+
+    if request.method == 'POST':
+        #Si me enviaron datos, crear nuevo formulario con los datos enviados
+        formulario = Registro_mascota_Form(data=request.POST, files=request.FILES) #POST es un diccionario con todos los datos
+
+        if formulario.is_valid(): #Validando
+            formulario.save()
+            formulario.foto_mascota = request.FILES.get('txtImagen')
+            data["mensaje"] = "Registro completado"
+            #return redirect('Formulario registro')
+        else: #Si no valida
+            data["form"] = formulario
+            #return redirect('Formulario registro')
+
+    return render(request, "pagina1app/formulario_registro_mascota.html", data)
+
+
+##########################################
+#   Configurando el solicitud adpocion  #
+#########################################
+
+def formulario_adopcion(request):
+
+    data = {'form': Solicitud_adopcion_Form()}
+
+    if request.method == 'POST':
+        #Si me enviaron datos, crear nuevo formulario con los datos enviados
+        formulario = Solicitud_adopcion_Form(data=request.POST) #POST es un diccionario con todos los datos
+
+        if formulario.is_valid(): #Validando
+            formulario.save()
+            data["mensaje"] = "Solicitud enviada, pronto alguno de nuestros operadores se comunicará contigo"
+            return redirect('Formulario adopcion')
+        else: #Si no valida
+            data["form"] = formulario
+            return redirect('Formulario adopcion')
+
+    return render(request, "pagina1app/formulario_adopcion.html", data)
