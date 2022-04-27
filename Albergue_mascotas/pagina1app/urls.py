@@ -20,10 +20,24 @@ urlpatterns = [
     path('formulario_adopcion/',views.formulario_adopcion, name="Formulario adopcion"),
     path('registro/',views.registro, name="Formulario Registro"),
 
-    path('reset_password/', auth_views.PasswordResetView.as_view(), name = "Reset password"),
-    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(), name = "Password reset done"),
-    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name = "Password reset confirm"),
-    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(), name = "Password reset complete"),
+    #Configurando restablecer contraseña
+    #Video: https://www.youtube.com/watch?v=sFPcd6myZrY&ab_channel=DennisIvy
+    #Documentación actualizada: https://docs.djangoproject.com/en/4.0/topics/auth/default/
+    path('accounts/password_reset/',
+        auth_views.PasswordResetView.as_view(template_name="accounts/password_reset.html"),
+        name = "password_reset"),
+
+    path('accounts/password_reset/done/',
+        auth_views.PasswordResetDoneView.as_view(template_name="accounts/password_reset_sent.html"),
+        name = "password_reset_done"),
+
+    path('accounts/reset/<uidb64>/<token>/',
+        auth_views.PasswordResetConfirmView.as_view(template_name="accounts/password_reset_form.html"),
+        name = "password_reset_confirm"),
+
+    path('accounts/reset/done/',
+        auth_views.PasswordResetCompleteView.as_view(template_name="accounts/password_reset_done.html"),
+        name = "password_reset_complete"),
 
 ]
 
