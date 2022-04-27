@@ -80,7 +80,7 @@
             Albergue
           </a>
         </li>
-        
+
 
         <li class="nav-item px-lg-4">
           <a
@@ -101,6 +101,7 @@
 <!--Creando condicional login y logout-->
 
         {% if user.is_authenticated %}
+
         <li class="nav-item px-lg-4">
           <a
             class="nav-link text-uppercase text-expanded"
@@ -116,6 +117,7 @@
             @{{ user.username }}
           </a>
         </li>
+
         {% else %}
         <li class="nav-item px-lg-4">
           <a
@@ -124,6 +126,7 @@
             Iniciar sesión
           </a>
         </li>
+
         {% endif %}
 <!-- //////////////////////////////////////////////////// -->
 
