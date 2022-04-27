@@ -58,3 +58,8 @@ Pasos para crear un nuevo formulario:
 6. views.py
 7. archivo.html
 
+=============================================================
+
+Configurando restablecer contraseña
+Video: https://www.youtube.com/watch?v=sFPcd6myZrY&ab_channel=DennisIvy
+Documentación actualizada: https://docs.djangoproject.com/en/4.0/topics/auth/default/
