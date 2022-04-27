@@ -90,6 +90,11 @@
           </a>
         </li>
 
+
+<!--Creando condicional login y logout-->
+
+        {% if user.is_authenticated %}
+
         <li class="nav-item px-lg-4">
           <a
             class="nav-link text-uppercase text-expanded"
@@ -97,10 +102,6 @@
             Formularios registro y adopcion
           </a>
         </li>
-
-<!--Creando condicional login y logout-->
-
-        {% if user.is_authenticated %}
 
         <li class="nav-item px-lg-4">
           <a
