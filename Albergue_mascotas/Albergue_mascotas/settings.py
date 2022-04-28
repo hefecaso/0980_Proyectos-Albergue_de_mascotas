@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     #'colorfield',
     #'jet',
     #'jet.dashboard',
+    'import_export',
 ]
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
@@ -145,6 +146,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#Statir_root para exportar e importar en archivos la base de validators
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 #configuracion de envio de correos
 EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
