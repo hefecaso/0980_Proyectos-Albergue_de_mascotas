@@ -3,3 +3,4 @@ DateTime
 Pillow
 ntpath
 django-phonenumber-field
+django-suit
