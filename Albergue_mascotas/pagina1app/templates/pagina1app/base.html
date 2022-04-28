@@ -90,7 +90,7 @@
           </a>
         </li>
 
-
+<!-- //////////////////////////////////////////////////// -->
 <!--Creando condicional login y logout-->
 
         {% if user.is_authenticated %}
@@ -102,6 +102,23 @@
             Formularios registro y adopcion
           </a>
         </li>
+
+          <!-- //////////////////////////////////////////////////// -->
+          <!--Si es superusuario-->
+
+          {% if user.is_superuser %}
+
+          <li class="nav-item px-lg-4">
+            <a
+              class="nav-link text-uppercase text-expanded"
+              href="{% url 'admin:index' %}">
+              Administrador
+            </a>
+          </li>
+
+          {% endif %}
+
+          <!-- //////////////////////////////////////////////////// -->
 
         <li class="nav-item px-lg-4">
           <a
@@ -129,6 +146,11 @@
         </li>
 
         {% endif %}
+<!-- //////////////////////////////////////////////////// -->
+
+<!--Creando condicional login y logout-->
+
+
 <!-- //////////////////////////////////////////////////// -->
 
       </ul>

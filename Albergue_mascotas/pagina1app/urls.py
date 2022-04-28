@@ -39,6 +39,12 @@ urlpatterns = [
         auth_views.PasswordResetCompleteView.as_view(template_name="accounts/password_reset_done.html"),
         name = "password_reset_complete"),
 
+
+    #Personalizando tema en admin
+    #path('jet/', include('jet.urls', 'jet')),
+    #path('admin/', include(admin.site.urls)),
+    #path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard'))
+
 ]
 
 
