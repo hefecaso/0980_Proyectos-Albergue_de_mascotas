@@ -21,6 +21,88 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
+-- Name: admin_interface_theme; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.admin_interface_theme (
+    id integer NOT NULL,
+    name character varying(50) NOT NULL,
+    active boolean NOT NULL,
+    title character varying(50) NOT NULL,
+    title_visible boolean NOT NULL,
+    logo character varying(100) NOT NULL,
+    logo_visible boolean NOT NULL,
+    css_header_background_color character varying(10) NOT NULL,
+    title_color character varying(10) NOT NULL,
+    css_header_text_color character varying(10) NOT NULL,
+    css_header_link_color character varying(10) NOT NULL,
+    css_header_link_hover_color character varying(10) NOT NULL,
+    css_module_background_color character varying(10) NOT NULL,
+    css_module_text_color character varying(10) NOT NULL,
+    css_module_link_color character varying(10) NOT NULL,
+    css_module_link_hover_color character varying(10) NOT NULL,
+    css_module_rounded_corners boolean NOT NULL,
+    css_generic_link_color character varying(10) NOT NULL,
+    css_generic_link_hover_color character varying(10) NOT NULL,
+    css_save_button_background_color character varying(10) NOT NULL,
+    css_save_button_background_hover_color character varying(10) NOT NULL,
+    css_save_button_text_color character varying(10) NOT NULL,
+    css_delete_button_background_color character varying(10) NOT NULL,
+    css_delete_button_background_hover_color character varying(10) NOT NULL,
+    css_delete_button_text_color character varying(10) NOT NULL,
+    list_filter_dropdown boolean NOT NULL,
+    related_modal_active boolean NOT NULL,
+    related_modal_background_color character varying(10) NOT NULL,
+    related_modal_rounded_corners boolean NOT NULL,
+    logo_color character varying(10) NOT NULL,
+    recent_actions_visible boolean NOT NULL,
+    favicon character varying(100) NOT NULL,
+    related_modal_background_opacity character varying(5) NOT NULL,
+    env_name character varying(50) NOT NULL,
+    env_visible_in_header boolean NOT NULL,
+    env_color character varying(10) NOT NULL,
+    env_visible_in_favicon boolean NOT NULL,
+    related_modal_close_button_visible boolean NOT NULL,
+    language_chooser_active boolean NOT NULL,
+    language_chooser_display character varying(10) NOT NULL,
+    list_filter_sticky boolean NOT NULL,
+    form_pagination_sticky boolean NOT NULL,
+    form_submit_sticky boolean NOT NULL,
+    css_module_background_selected_color character varying(10) NOT NULL,
+    css_module_link_selected_color character varying(10) NOT NULL,
+    logo_max_height smallint NOT NULL,
+    logo_max_width smallint NOT NULL,
+    foldable_apps boolean NOT NULL,
+    CONSTRAINT admin_interface_theme_logo_max_height_check CHECK ((logo_max_height >= 0)),
+    CONSTRAINT admin_interface_theme_logo_max_width_check CHECK ((logo_max_width >= 0))
+);
+
+
+ALTER TABLE public.admin_interface_theme OWNER TO postgres;
+
+--
+-- Name: admin_interface_theme_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.admin_interface_theme_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.admin_interface_theme_id_seq OWNER TO postgres;
+
+--
+-- Name: admin_interface_theme_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.admin_interface_theme_id_seq OWNED BY public.admin_interface_theme.id;
+
+
+--
 -- Name: auth_group; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -461,6 +543,13 @@ ALTER SEQUENCE public.pagina1app_solicitud_adopcion_id_seq OWNED BY public.pagin
 
 
 --
+-- Name: admin_interface_theme id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.admin_interface_theme ALTER COLUMN id SET DEFAULT nextval('public.admin_interface_theme_id_seq'::regclass);
+
+
+--
 -- Name: auth_group id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -538,6 +627,16 @@ ALTER TABLE ONLY public.pagina1app_solicitud_adopcion ALTER COLUMN id SET DEFAUL
 
 
 --
+-- Data for Name: admin_interface_theme; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.admin_interface_theme (id, name, active, title, title_visible, logo, logo_visible, css_header_background_color, title_color, css_header_text_color, css_header_link_color, css_header_link_hover_color, css_module_background_color, css_module_text_color, css_module_link_color, css_module_link_hover_color, css_module_rounded_corners, css_generic_link_color, css_generic_link_hover_color, css_save_button_background_color, css_save_button_background_hover_color, css_save_button_text_color, css_delete_button_background_color, css_delete_button_background_hover_color, css_delete_button_text_color, list_filter_dropdown, related_modal_active, related_modal_background_color, related_modal_rounded_corners, logo_color, recent_actions_visible, favicon, related_modal_background_opacity, env_name, env_visible_in_header, env_color, env_visible_in_favicon, related_modal_close_button_visible, language_chooser_active, language_chooser_display, list_filter_sticky, form_pagination_sticky, form_submit_sticky, css_module_background_selected_color, css_module_link_selected_color, logo_max_height, logo_max_width, foldable_apps) FROM stdin;
+1	Django	t	Django administration	t		t	#0C4B33	#F5DD5D	#44B78B	#FFFFFF	#C9F0DD	#44B78B	#FFFFFF	#FFFFFF	#C9F0DD	t	#0C3C26	#156641	#0C4B33	#0C3C26	#FFFFFF	#BA2121	#A41515	#FFFFFF	t	t	#000000	t	#FFFFFF	t		0.3		t	#E70000	t	t	t	code	t	f	f	#FFFFCC	#FFFFFF	100	400	t
+2	Django2	f	Puppy Heroe - Admin dashboard	t		t	#0C4B33	#0346F5	#44B78B	#FFFFFF	#C9F0DD	#44B78B	#FFFFFF	#FFFFFF	#C9F0DD	t	#0C3C26	#156641	#0C4B33	#0C3C26	#FFFFFF	#BA2121	#A41515	#FFFFFF	t	t	#2ADDFF	t	#1393FF	t		0.3		t	#1772E7	t	t	t	code	t	f	f	#FFFFCC	#FFFFFF	100	400	t
+\.
+
+
+--
 -- Data for Name: auth_group; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -594,6 +693,10 @@ COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
 34	Can change solicitud_adopcion	9	change_solicitud_adopcion
 35	Can delete solicitud_adopcion	9	delete_solicitud_adopcion
 36	Can view solicitud_adopcion	9	view_solicitud_adopcion
+37	Can add Theme	10	add_theme
+38	Can change Theme	10	change_theme
+39	Can delete Theme	10	delete_theme
+40	Can view Theme	10	view_theme
 \.
 
 
@@ -602,7 +705,8 @@ COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
 --
 
 COPY public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
-1	pbkdf2_sha256$320000$ZhhzUEXAJE0ajyAFn7unvj$2FZas+ZzysHpdR+IlKAYzzhuYdo+LTVNweMjTw+Lyrw=	2022-04-21 18:36:56.447984-06	t	admin			admin@admin.com	t	t	2022-04-17 02:52:31.54935-06
+4	pbkdf2_sha256$320000$6M9TQ6otjnzFVC6nGClqqY$GF32/y4q9ZiOzT5WBreIVtXp6Gm1NELHqP21euaE2Vg=	2022-04-30 01:22:23.921201-06	f	hefecaso	Fernando	Carrera	hfcarrerasoto@yahoo.es	f	t	2022-04-27 00:18:37.786933-06
+1	pbkdf2_sha256$320000$ZhhzUEXAJE0ajyAFn7unvj$2FZas+ZzysHpdR+IlKAYzzhuYdo+LTVNweMjTw+Lyrw=	2022-04-30 01:23:26.793453-06	t	admin			admin@admin.com	t	t	2022-04-17 02:52:31.54935-06
 \.
 
 
@@ -641,6 +745,27 @@ COPY public.django_admin_log (id, action_time, object_id, object_repr, action_fl
 12	2022-04-19 01:05:31.137895-06	123456333	Laika Dasha	3		8	1
 13	2022-04-19 01:05:31.155502-06	123456222	Oso	3		8	1
 14	2022-04-19 01:05:31.171808-06	123456221	Oso	3		8	1
+15	2022-04-26 23:46:25.974029-06	2	fernando	3		4	1
+16	2022-04-27 00:17:44.210565-06	3	hefecaso	3		4	1
+17	2022-04-28 01:43:24.882966-06	1	Django	2	[{"changed": {"fields": ["Background color"]}}]	10	1
+18	2022-04-28 01:46:00.740689-06	1	Django	2	[{"changed": {"fields": ["Color", "Background color"]}}]	10	1
+19	2022-04-28 01:47:15.317826-06	1	Django	2	[]	10	1
+20	2022-04-28 01:47:41.120187-06	1	Django	2	[]	10	1
+21	2022-04-28 01:47:51.763984-06	2	Django2	1	[{"added": {}}]	10	1
+22	2022-04-28 01:48:26.359082-06	2	Django2	2	[{"changed": {"fields": ["Color", "Color", "Color"]}}]	10	1
+23	2022-04-28 01:50:22.558208-06	2	Django2	2	[{"changed": {"fields": ["Active"]}}]	10	1
+24	2022-04-28 02:00:26.23502-06	2	Django2	2	[{"changed": {"fields": ["Title"]}}]	10	1
+25	2022-04-28 02:00:32.351618-06	2	Django2	2	[]	10	1
+26	2022-04-28 02:23:34.927869-06	2	Django2	2	[{"changed": {"fields": ["Active"]}}]	10	1
+27	2022-04-28 02:23:40.27393-06	1	Django	2	[{"changed": {"fields": ["Active"]}}]	10	1
+28	2022-04-28 02:24:44.893209-06	2	Django2	2	[{"changed": {"fields": ["Active", "Background color"]}}]	10	1
+29	2022-04-28 02:24:56.466494-06	2	Django2	2	[{"changed": {"fields": ["Active"]}}]	10	1
+30	2022-04-28 02:25:06.061352-06	1	Django	2	[{"changed": {"fields": ["Active"]}}]	10	1
+31	2022-04-28 02:26:10.261923-06	2	Django2	2	[{"changed": {"fields": ["Active"]}}]	10	1
+32	2022-04-28 02:30:53.347164-06	1	Django	2	[{"changed": {"fields": ["Active"]}}]	10	1
+33	2022-04-28 02:42:01.556421-06	1	Django	2	[{"changed": {"fields": ["Color"]}}]	10	1
+34	2022-04-28 03:50:18.615334-06	2	Katy Ixchely	2	[{"changed": {"fields": ["Nombre"]}}]	7	1
+35	2022-04-28 03:50:26.78778-06	1	Katy Ixchely	2	[{"changed": {"fields": ["Nombre"]}}]	7	1
 \.
 
 
@@ -658,6 +783,7 @@ COPY public.django_content_type (id, app_label, model) FROM stdin;
 7	pagina1app	contacto
 8	pagina1app	registro_mascota
 9	pagina1app	solicitud_adopcion
+10	admin_interface	theme
 \.
 
 
@@ -685,6 +811,30 @@ COPY public.django_migrations (id, app, name, applied) FROM stdin;
 17	auth	0012_alter_user_first_name_max_length	2022-04-17 02:43:52.626711-06
 18	pagina1app	0001_initial	2022-04-17 02:43:53.337997-06
 19	sessions	0001_initial	2022-04-17 02:43:53.658261-06
+20	admin_interface	0001_initial	2022-04-28 01:40:31.417577-06
+21	admin_interface	0002_add_related_modal	2022-04-28 01:40:31.721434-06
+22	admin_interface	0003_add_logo_color	2022-04-28 01:40:31.781972-06
+23	admin_interface	0004_rename_title_color	2022-04-28 01:40:31.835649-06
+24	admin_interface	0005_add_recent_actions_visible	2022-04-28 01:40:31.889825-06
+25	admin_interface	0006_bytes_to_str	2022-04-28 01:40:32.061986-06
+26	admin_interface	0007_add_favicon	2022-04-28 01:40:32.128644-06
+27	admin_interface	0008_change_related_modal_background_opacity_type	2022-04-28 01:40:32.19615-06
+28	admin_interface	0009_add_enviroment	2022-04-28 01:40:32.274359-06
+29	admin_interface	0010_add_localization	2022-04-28 01:40:32.363234-06
+30	admin_interface	0011_add_environment_options	2022-04-28 01:40:32.456394-06
+31	admin_interface	0012_update_verbose_names	2022-04-28 01:40:32.568287-06
+32	admin_interface	0013_add_related_modal_close_button	2022-04-28 01:40:32.638201-06
+33	admin_interface	0014_name_unique	2022-04-28 01:40:33.230284-06
+34	admin_interface	0015_add_language_chooser_active	2022-04-28 01:40:33.36623-06
+35	admin_interface	0016_add_language_chooser_display	2022-04-28 01:40:33.434754-06
+36	admin_interface	0017_change_list_filter_dropdown	2022-04-28 01:40:33.543775-06
+37	admin_interface	0018_theme_list_filter_sticky	2022-04-28 01:40:33.640138-06
+38	admin_interface	0019_add_form_sticky	2022-04-28 01:40:33.716649-06
+39	admin_interface	0020_module_selected_colors	2022-04-28 01:40:33.821872-06
+40	admin_interface	0021_file_extension_validator	2022-04-28 01:40:33.893421-06
+41	admin_interface	0022_add_logo_max_width_and_height	2022-04-28 01:40:33.970432-06
+42	admin_interface	0023_theme_foldable_apps	2022-04-28 01:40:34.016202-06
+43	admin_interface	0024_remove_theme_css	2022-04-28 01:40:34.108129-06
 \.
 
 
@@ -693,7 +843,9 @@ COPY public.django_migrations (id, app, name, applied) FROM stdin;
 --
 
 COPY public.django_session (session_key, session_data, expire_date) FROM stdin;
-683jgn4iuhb62sovjni7pa46dii2tr0c	.eJxVjDsOwjAQBe_iGlleZ_2jpOcMlj9rHEC2FCcV4u4QKQW0b2bei_mwrdVvgxY_Z3ZmwE6_WwzpQW0H-R7arfPU27rMke8KP-jg157peTncv4MaRv3WRtjJBp0ioXAGpUDIWhlXpHQWVBA2QhFIWkIpCNFpillNUpJxCCqx9wexqza2:1nhhIA:KcXroW-Xg55v0OMr4o4QIG_58wf5uDZnHC-PMnjp-z4	2022-05-05 18:36:58.704212-06
+5nndiskgf00n8xhiuiyzyofgrvuemdhq	eyJfcGFzc3dvcmRfcmVzZXRfdG9rZW4iOiJiNGltb3MtNzgyM2FkNWYzM2MyOWFhYTJhYTc0MDk4OWE4YjNkYzQifQ:1njc7s:N78jZwKdn1H8bXKAP-fqKfXubaatnYuzrE25-PqmqvI	2022-05-11 01:30:16.916992-06
+l61sc5el6ty828kf3iltic74ko43vy35	.eJxVjDsOwjAQBe_iGlleZ_2jpOcMlj9rHEC2FCcV4u4QKQW0b2bei_mwrdVvgxY_Z3ZmwE6_WwzpQW0H-R7arfPU27rMke8KP-jg157peTncv4MaRv3WRtjJBp0ioXAGpUDIWhlXpHQWVBA2QhFIWkIpCNFpillNUpJxCCqx9wexqza2:1njzhq:RAQ8vwmTs58Ea4k7doUGb6brX2poVjWZKN-otjOql1s	2022-05-12 02:40:58.3281-06
+7o0bss6wmvwm25ug8o9t5idparq4nrg9	.eJxVjDsOwjAQBe_iGlleZ_2jpOcMlj9rHEC2FCcV4u4QKQW0b2bei_mwrdVvgxY_Z3ZmwE6_WwzpQW0H-R7arfPU27rMke8KP-jg157peTncv4MaRv3WRtjJBp0ioXAGpUDIWhlXpHQWVBA2QhFIWkIpCNFpillNUpJxCCqx9wexqza2:1nkhRv:eTbWWCJBA5MFIsqcDNqsMqDlv8wcmip_FHa9P-yd5iA	2022-05-14 01:23:27.091075-06
 \.
 
 
@@ -702,8 +854,9 @@ COPY public.django_session (session_key, session_data, expire_date) FROM stdin;
 --
 
 COPY public.pagina1app_contacto (id, nombre, correo, tipo_consulta, mensaje, avisos) FROM stdin;
-1	Katy ixchely	hfcarrerasoto@yahoo.es	3	Probando el merge	t
-2	Katy ixchely	hfcarrerasoto@yahoo.es	3	Probando el merge	t
+3	Fernando Carrera	correo@ejemplo.com	3	Felicidades por la página web	t
+2	Katy Ixchely	hfcarrerasoto@yahoo.es	3	Probando el merge	t
+1	Katy Ixchely	hfcarrerasoto@yahoo.es	3	Probando el merge	t
 \.
 
 
@@ -715,6 +868,7 @@ COPY public.pagina1app_registro_mascota (id_mascota, nombre_mascota, sexo_mascot
 123456789	Oso	0	12	2022-04-12	2022-04-10	fotos_mascotas/samoyedo.jpg	Samoyedo	rabia,distemper,parainfluenza
 123456555	Amber	1	3	2022-04-12	2022-01-07	fotos_mascotas/hacker.png	Pitbull	rabia,parainfluenza
 123123123	Yoshi	0	12	2022-04-12	2022-01-07	fotos_mascotas/spiderman.png	Aracnido	rabia,distemper,parainfluenza
+1234567891	Linsai	1	5	2022-04-12	2022-04-07	fotos_mascotas/Pastor_aleman.jpg	Pastor aleman	rabia,leptospirosis,parainfluenza
 \.
 
 
@@ -725,7 +879,15 @@ COPY public.pagina1app_registro_mascota (id_mascota, nombre_mascota, sexo_mascot
 COPY public.pagina1app_solicitud_adopcion (id, nombres, apellidos, edad, correo, telefono, domicilio, id_mascota, razon) FROM stdin;
 1	Héctor Fernando	Carrera Soto	25	hfcarrerasoto@yahoo.es	35568775	zona 18	123456787	Esta es una prueba
 2	Héctor Fernando Merge	Carrera Soto Merge	25	correo@merge.com	35568775	Lomas de lavarreda	123456785	Prueba después de unir ambas partes
+3	Christian	Pocol	25	correo@ejemplo.com	123456	Lomas de lavarreda	1234567891	Esta es una razón
 \.
+
+
+--
+-- Name: admin_interface_theme_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.admin_interface_theme_id_seq', 2, true);
 
 
 --
@@ -746,7 +908,7 @@ SELECT pg_catalog.setval('public.auth_group_permissions_id_seq', 1, false);
 -- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.auth_permission_id_seq', 36, true);
+SELECT pg_catalog.setval('public.auth_permission_id_seq', 40, true);
 
 
 --
@@ -760,7 +922,7 @@ SELECT pg_catalog.setval('public.auth_user_groups_id_seq', 1, false);
 -- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.auth_user_id_seq', 1, true);
+SELECT pg_catalog.setval('public.auth_user_id_seq', 4, true);
 
 
 --
@@ -774,35 +936,51 @@ SELECT pg_catalog.setval('public.auth_user_user_permissions_id_seq', 1, false);
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.django_admin_log_id_seq', 14, true);
+SELECT pg_catalog.setval('public.django_admin_log_id_seq', 35, true);
 
 
 --
 -- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.django_content_type_id_seq', 9, true);
+SELECT pg_catalog.setval('public.django_content_type_id_seq', 10, true);
 
 
 --
 -- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.django_migrations_id_seq', 19, true);
+SELECT pg_catalog.setval('public.django_migrations_id_seq', 43, true);
 
 
 --
 -- Name: pagina1app_contacto_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.pagina1app_contacto_id_seq', 2, true);
+SELECT pg_catalog.setval('public.pagina1app_contacto_id_seq', 3, true);
 
 
 --
 -- Name: pagina1app_solicitud_adopcion_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.pagina1app_solicitud_adopcion_id_seq', 2, true);
+SELECT pg_catalog.setval('public.pagina1app_solicitud_adopcion_id_seq', 3, true);
+
+
+--
+-- Name: admin_interface_theme admin_interface_theme_name_30bda70f_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.admin_interface_theme
+    ADD CONSTRAINT admin_interface_theme_name_30bda70f_uniq UNIQUE (name);
+
+
+--
+-- Name: admin_interface_theme admin_interface_theme_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.admin_interface_theme
+    ADD CONSTRAINT admin_interface_theme_pkey PRIMARY KEY (id);
 
 
 --
@@ -963,6 +1141,13 @@ ALTER TABLE ONLY public.pagina1app_registro_mascota
 
 ALTER TABLE ONLY public.pagina1app_solicitud_adopcion
     ADD CONSTRAINT pagina1app_solicitud_adopcion_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: admin_interface_theme_name_30bda70f_like; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX admin_interface_theme_name_30bda70f_like ON public.admin_interface_theme USING btree (name varchar_pattern_ops);
 
 
 --

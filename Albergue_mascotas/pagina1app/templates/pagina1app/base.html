@@ -97,7 +97,7 @@
 <!-- //////////////////////////////////////////////////// -->
 <!--Creando condicional login y logout-->
 
-        {% if user.is_authenticated %}
+      {% if user.is_authenticated %}
 
         <li class="nav-item px-lg-4">
           <a
@@ -112,17 +112,17 @@
 
           {% if user.is_superuser %}
 
-          <li class="nav-item px-lg-4">
-            <a
-              class="nav-link text-uppercase text-expanded"
-              href="{% url 'admin:index' %}">
-              Administrador
-            </a>
-          </li>
+            <li class="nav-item px-lg-4">
+              <a
+                class="nav-link text-uppercase text-expanded"
+                href="{% url 'admin:index' %}">
+                Administrador
+              </a>
+            </li>
 
           {% endif %}
 
-          <!-- //////////////////////////////////////////////////// -->
+            <!-- //////////////////////////////////////////////////// -->
 
         <li class="nav-item px-lg-4">
           <a
@@ -140,7 +140,7 @@
           </a>
         </li>
 
-        {% else %}
+      {% else %}
         <li class="nav-item px-lg-4">
           <a
             class="nav-link text-uppercase text-expanded"
@@ -149,7 +149,7 @@
           </a>
         </li>
 
-        {% endif %}
+      {% endif %}
 <!-- //////////////////////////////////////////////////// -->
 
 <!--Creando condicional login y logout-->

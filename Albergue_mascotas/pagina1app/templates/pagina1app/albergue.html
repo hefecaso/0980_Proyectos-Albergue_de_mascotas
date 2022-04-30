@@ -31,7 +31,10 @@
                   ID de la mascota: {{ p.id_mascota}}
                 </p>
 
-                <a href="{% url 'Formulario adopcion' %}" class="btn btn-primary">Adoptar</a>
+                {% if user.is_authenticated %}
+                  <a href="{% url 'Formulario adopcion' %}" class="btn btn-primary">Adoptar</a>
+                {% endif %}
+                
               </div>
             </div>
           </div>
