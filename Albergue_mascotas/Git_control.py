@@ -15,7 +15,7 @@ def menu():
     print("3. Git commit con comentario.")
     print("4. Git push.")
     print("5. Git pull.")
-    print("6. Ver historial de comits.")
+    print("6. Ver historial de commits.")
     print("7. Git reset hard.")
     print("8. Guardando el reset hard.")
     print("9. Ver ramas clonadas y locales.")
