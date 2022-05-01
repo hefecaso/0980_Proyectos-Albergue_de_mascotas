@@ -1,9 +1,0 @@
-django-multiselectfield
-DateTime
-Pillow
-ntpath
-django-phonenumber-field
-django-suit
-django-admin-interface
-django-jet
-django-import-export
