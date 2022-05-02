@@ -1,23 +1,31 @@
-version: '3.9'
+version: "3"
 
 services:
-  db:
-    image: postgres:12
+  db_postgress:
+    image: postgres:12.9
     volumes:
-      - ./data/db:/var/lib/postgres/data
-    environment:
-      - POSTGRES_DB=puppy_heroe
-      - POSTGRES_USER=postgres
-      - POSTGRES_HOST=127.0.0.1
-      - POSTGRES_PORT=5432
-      - POSTGRES_PASSWORD=123456
+      - postgres_data:/var/lib/postgresql/data
 
-  web:
+  puppy_heroe:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/Albergue_mascotas
-    ports:
-      - '8000:8000'
+      - static:/code/static
+      - .:/code
+
     depends_on:
-      - db
+      - db_postgress
+
+
+  nginx:
+    image: nginx:1.13
+    ports:
+      - 8000:80
+
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - static:/code/static
+
+volumes:
+  .:
+    postgres_data:
+    static:

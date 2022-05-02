@@ -1,12 +1,11 @@
-FROM python:3.8-slim-buster
+FROM python:3.8
 
 ENV PYTHONUNBUFFERED = 1
+RUN mkdir /code
 
-WORKDIR /albergue_mascotas
+WORKDIR /code
+COPY . /code
 
-COPY librearias.txt librearias.txt
 RUN pip install -r librearias.txt
 
-COPY . .
-
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["gunicorn", "-c", "config/gunicorn/conf.py", "--blind", ":8000", "--chdir", "Albergue_mascotas0", "Albergue_mascotas.wsgi:application"]

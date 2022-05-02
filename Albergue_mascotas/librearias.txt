@@ -1,9 +1,9 @@
-django-multiselectfield
+Django==4.0.3
+django-multiselectfield==0.1.12
 DateTime
-Pillow
-ntpath
-django-phonenumber-field
-django-suit
-django-admin-interface
-django-jet
-django-import-export
+Pillow==7.0.0
+django-phonenumber-field==6.1.0
+django-suit==0.2.28
+django-admin-interface==0.19.0
+django-jet==1.0.8
+django-import-export==2.8.0

@@ -24,9 +24,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-h12850(gxnu#^12lv@z!^46%j#2uhi*#v_qg3uxe29(puvw5xs'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+#En desarrollo
+ALLOWED_HOSTS = ['*']
+
+#Lanzando
+#ALLOWED_HOSTS = ['url']
 
 
 # Application definition
@@ -97,7 +101,7 @@ DATABASES = {
 #############################
 #   Conectando a postgres   #
 #############################
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -106,6 +110,21 @@ DATABASES = {
         'PASSWORD': '123456',
         'HOST':'127.0.0.1',
         'DATABASE_PORT':'5432'
+    }
+}
+'''
+
+#########################################
+#   Conectando a postgres para docker   #
+#########################################
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER':'postgres',
+        'HOST':'db_postgres',
+        'PORT':5432
     }
 }
 
@@ -147,9 +166,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+'''
 #Statir_root para exportar e importar en archivos la base de validators
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+'''
+#Statir_root para exportar e importar en archivos la base de validators en docker
+
+STATIC_ROOT = '/code/static/'
 
 #configuracion de envio de correos
 EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend"
