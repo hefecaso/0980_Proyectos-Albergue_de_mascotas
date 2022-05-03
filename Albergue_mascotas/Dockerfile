@@ -8,4 +8,4 @@ COPY . /code
 
 RUN pip install -r librearias.txt
 
-CMD ["gunicorn", "-c", "config/gunicorn/conf.py", "--blind", ":8000", "--chdir", "Albergue_mascotas0", "Albergue_mascotas.wsgi:application"]
+CMD ["gunicorn", "-c", "config/gunicorn/conf.py", "--blind", ":8000", "--chdir", "Albergue_mascotas", "Albergue_mascotas.wsgi:application"]

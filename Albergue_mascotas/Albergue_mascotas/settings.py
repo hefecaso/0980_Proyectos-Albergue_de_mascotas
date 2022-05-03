@@ -121,12 +121,25 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
+        'NAME': 'puppy_hero',
         'USER':'postgres',
         'HOST':'db_postgres',
         'PORT':5432
     }
 }
+
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'puppy_heroe',
+        'USER':'postgres',
+        'PASSWORD': '123456',
+        'HOST':'db_postgres',
+        'DATABASE_PORT':'5432'
+    }
+}
+'''
 
 ##################################################################
 

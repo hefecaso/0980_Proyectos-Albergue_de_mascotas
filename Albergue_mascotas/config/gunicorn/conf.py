@@ -1,4 +1,4 @@
-name = 'docker_django'
+name = 'django_app'
 loglevel = 'info'
 errorlog = '-'
 accesslog = '_'

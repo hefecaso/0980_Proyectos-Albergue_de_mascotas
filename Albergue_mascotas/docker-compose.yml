@@ -5,8 +5,10 @@ services:
     image: postgres:12.9
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    environment:
+        POSTGRES_PASSWORD: 123456
 
-  puppy_heroe:
+  django_app:
     build: .
     volumes:
       - static:/code/static
@@ -17,15 +19,15 @@ services:
 
 
   nginx:
-    image: nginx:1.13
+    image: nginx:1.18.0
     ports:
       - 8000:80
 
     volumes:
       - ./config/nginx/conf.d:/etc/nginx/conf.d
-      - static:/code/static
+      - static:/code/staticZ
 
 volumes:
   .:
-    postgres_data:
-    static:
+  postgres_data:
+  static:
