@@ -5,8 +5,11 @@ services:
     image: postgres:12.9
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
     environment:
         POSTGRES_PASSWORD: 123456
+        POSTGRES_USER: postgres
+        POSTGRES_NAME: puppy_hero
 
   django_app:
     build: .
@@ -31,3 +34,23 @@ volumes:
   .:
   postgres_data:
   static:
+
+================================================================================
+
+version: "3"
+services:
+  db:
+    image: postgres:12.9
+    environnent:
+       - POSTGRES_DB = puppy_hero
+       - POSTGRES_DB_USER = postgres
+       - POSTGRES_PASSWOR = 123456
+    ports:
+       - 5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  django_app:
+    bulid: .
+    environnent:
+      - DB_HOST = db_postgress
