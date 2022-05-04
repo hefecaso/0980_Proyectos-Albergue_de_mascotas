@@ -19,9 +19,10 @@ def menu():
     print("7. Borrrar contenedor con id de contenedor.")
     print("8. Subir con docker composer.")
     print("9. Correr con docker composer.")
-    print("10. Migrate docker-compose -> Django.")
-    print("11. Collectstatic docker-compose -> Django.")
-    print("12. Salir.\n")
+    print("10. Makemigrations docker-compose -> Django.")
+    print("11. Migrate docker-compose -> Django.")
+    print("12. Collectstatic docker-compose -> Django.")
+    print("13. Salir.\n")
 
 
 while True:
@@ -93,29 +94,36 @@ while True:
     elif opc == '8':
         print('====================================================================')
         print("Subiendo con docker composer\n")
-        print(f"\nsudo docker-compose up --build\n")
-        system(f"sudo docker-compose up --build")
+        print(f"\nsudo COMPOSE_HTTP_TIMEOUT=200 docker-compose up --build\n")
+        system(f"sudo COMPOSE_HTTP_TIMEOUT=200 docker-compose up --build")
         print('====================================================================')
 
     elif opc == '9':
         print('====================================================================')
         print("Corriendo con docker composer\n")
-        print(f"\nsudo docker-compose up\n")
-        system(f"sudo docker-compose up")
+        print(f"\nsudo COMPOSE_HTTP_TIMEOUT=200 docker-compose up\n")
+        system(f"sudo COMPOSE_HTTP_TIMEOUT=200 docker-compose up")
         print('====================================================================')
 
     elif opc == '10':
         print('====================================================================')
         print("Migrate docker-compose -> Django\n")
-        print(f"\nsudo docker-compose run django_app python manage.py migrate\n")
-        system(f"sudo docker-compose run django_app python manage.py migrate")
+        print(f"\nsudo COMPOSE_HTTP_TIMEOUT=200 docker-compose run django_app python manage.py makemigrations\n")
+        system(f"sudo COMPOSE_HTTP_TIMEOUT=200 docker-compose run django_app python manage.py makemigrations")
         print('====================================================================')
 
     elif opc == '11':
         print('====================================================================')
+        print("Migrate docker-compose -> Django\n")
+        print(f"\nsudo COMPOSE_HTTP_TIMEOUT=200 docker-compose run django_app python manage.py migrate\n")
+        system(f"sudo COMPOSE_HTTP_TIMEOUT=200 docker-compose run django_app python manage.py migrate")
+        print('====================================================================')
+
+    elif opc == '12':
+        print('====================================================================')
         print("Collectstatic docker-compose -> Django\n")
-        print(f"\nsudo docker-compose run django_app python manage.py collectstatic\n")
-        system(f"sudo docker-compose run django_app python manage.py collectstatic")
+        print(f"\nsudo COMPOSE_HTTP_TIMEOUT=200 docker-compose run django_app python manage.py collectstatic\n")
+        system(f"sudo COMPOSE_HTTP_TIMEOUT=200 docker-compose run django_app python manage.py collectstatic")
         print('====================================================================')
 
     else:
