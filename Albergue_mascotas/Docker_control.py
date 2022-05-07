@@ -17,8 +17,8 @@ def menu():
     print("5. Construir contenedor de Django.")
     print("6. Publicando contenedor de Django.")
     print("7. Borrrar contenedor con id de contenedor.")
-    print("8. Subir con docker composer.")
-    print("9. Correr con docker composer.")
+    print("8. Buil con docker composer.")
+    print("9. Up con docker composer.")
     print("10. Makemigrations docker-compose -> Django.")
     print("11. Migrate docker-compose -> Django.")
     print("12. Collectstatic docker-compose -> Django.")
@@ -94,21 +94,21 @@ while True:
 
     elif opc == '8':
         print('=================================================================================')
-        print("Subiendo con docker composer\n")
+        print("Buil con docker composer\n")
         print(f"\nsudo COMPOSE_HTTP_TIMEOUT=200 docker-compose up --build\n")
         system(f"sudo COMPOSE_HTTP_TIMEOUT=200 docker-compose up --build")
         print('=================================================================================')
 
     elif opc == '9':
         print('=================================================================================')
-        print("Corriendo con docker composer\n")
+        print("Up con docker composer\n")
         print(f"\nsudo COMPOSE_HTTP_TIMEOUT=200 docker-compose up\n")
         system(f"sudo COMPOSE_HTTP_TIMEOUT=200 docker-compose up")
         print('=================================================================================')
 
     elif opc == '10':
         print('=================================================================================')
-        print("Migrate docker-compose -> Django\n")
+        print("Makemigrations docker-compose -> Django\n")
         print(f"\nsudo COMPOSE_HTTP_TIMEOUT=200 docker-compose run django_app python manage.py makemigrations\n")
         system(f"sudo COMPOSE_HTTP_TIMEOUT=200 docker-compose run django_app python manage.py makemigrations")
         print('=================================================================================')

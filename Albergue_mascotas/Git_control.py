@@ -82,7 +82,6 @@ while True:
     elif opc == '8':
         print('====================================================================')
         print("Git reset hard\n")
-        commit = input("Ingrese ID del commit: ")
         system(f"git push -f origin")
         print('====================================================================')
 
@@ -116,5 +115,14 @@ while True:
         print('====================================================================')
 
 
-    else:
+    elif opc == '12':
+        print('====================================================================')
+        print("Saliendo del programa.")
+        print('====================================================================')
         break
+
+
+    else:
+        menu()
+        opc = input("Ingrese una opción: ")
+        os.system ("clear")
