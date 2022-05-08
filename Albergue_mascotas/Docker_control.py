@@ -23,7 +23,8 @@ def menu():
     print("11. Migrate docker-compose -> Django.")
     print("12. Collectstatic docker-compose -> Django.")
     print("13. Ingresar a contenedor.")
-    print("14. Salir.\n")
+    print("14. Iniciar docker desktop.")
+    print("15. Salir.\n")
 
 
 while True:
@@ -135,8 +136,15 @@ while True:
         system(f"sudo docker exec -it {contenedor} psql -U postgres")
         print('=================================================================================')
 
-
     elif opc == '14':
+        print('=================================================================================')
+        print("Iniciando docker desktop.\n")
+        print(f"\nsudo systemctl --user start docker-desktop\n")
+        system(f"sudo systemctl --user start docker-desktop")
+        print('=================================================================================')
+
+
+    elif opc == '15':
         print('===================')
         print("||   Saliendo.   ||")
         print('===================')
