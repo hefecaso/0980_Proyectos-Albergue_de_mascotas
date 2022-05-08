@@ -70,7 +70,7 @@ ROOT_URLCONF = 'Albergue_mascotas.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'BACKEND': 'django.db.backends.postgresql',
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -104,7 +104,7 @@ DATABASES = {
 '''
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'puppy_heroe',
         'USER':'postgres',
         'PASSWORD': '123456',
@@ -120,7 +120,7 @@ DATABASES = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('DB_NAME'),
         'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASSWORD'),
