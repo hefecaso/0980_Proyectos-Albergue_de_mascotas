@@ -24,7 +24,9 @@ def menu():
     print("12. Collectstatic docker-compose -> Django.")
     print("13. Ingresar a contenedor.")
     print("14. Iniciar docker desktop.")
-    print("15. Salir.\n")
+    print("15. Docker create y push a docker hub")
+    print("16 Docker login")
+    print("17. Salir.\n")
 
 
 while True:
@@ -143,8 +145,45 @@ while True:
         system(f"sudo systemctl --user start docker-desktop")
         print('=================================================================================')
 
-
     elif opc == '15':
+        print('=================================================================================')
+        print("Docker login.\n")
+        print(f"\nsudo docker login\n")
+        system(f"sudo docker login")
+
+        print("")
+
+        print("Mostrando lista de imáges")
+        print("\nsudo docker image ls\n")
+        system(f"sudo docker image ls")
+
+        print("")
+
+        print("Docker create y push a docker hub.\n")
+        usuario = input("Nombre de usuario: ")
+        repositorio = input("Nombre del repositorio de imágen: ")
+        tag = input("Nombre del tag de la imágen: ")
+
+        print("\nCreando variante")
+
+        print(f"\sudo docker tag {repositorio} {usuario}/{repositorio}:{tag}\n")
+        system(f"sudo docker tag {repositorio} {usuario}/{repositorio}:{tag}")
+
+        print(f"\nPush a repository de {usuario}.")
+        print(f"\nsudo docker push {usuario}/{repositorio}:{tag}\n")
+        system(f"sudo docker push {usuario}/{repositorio}:{tag}")
+
+        print('=================================================================================')
+
+    elif opc == '16':
+        print('=================================================================================')
+        print("Docker login.\n")
+        print(f"\nsudo docker login\n")
+        system(f"sudo docker login")
+        print('=================================================================================')
+
+
+    elif opc == '17':
         print('===================')
         print("||   Saliendo.   ||")
         print('===================')
