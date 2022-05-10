@@ -40,7 +40,7 @@ services:
 
     volumes:
       - ./config/nginx/conf.d:/etc/nginx/conf.d
-      - static:/code/staticZ
+      - static:/code/static
 
 volumes:
 
