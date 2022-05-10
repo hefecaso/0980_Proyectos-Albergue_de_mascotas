@@ -24,8 +24,8 @@ def menu():
     print("12. Collectstatic docker-compose -> Django.")
     print("13. Ingresar a contenedor.")
     print("14. Iniciar docker desktop.")
-    print("15. Docker create y push a docker hub")
-    print("16 Docker login")
+    print("15. Docker create y push a docker hub.")
+    print("16 Docker login.")
     print("17. Salir.\n")
 
 
@@ -60,7 +60,11 @@ while True:
 
     elif opc == '4':
         print('=================================================================================')
-        print("Borrando contenedor con id de imágen")
+        print("Mostrando lista de imáges")
+        print("\nsudo docker image ls\n")
+        system(f"sudo docker image ls")
+
+        print("\nBorrando contenedor con id de imágen")
         image = input("\nIngrese ID de imágen: ")
         print(f"\nsudo docker rmi -f {image}\n")
         system(f"sudo docker rmi -f {image}")
@@ -88,7 +92,11 @@ while True:
 
     elif opc == '7':
         print('=================================================================================')
-        print("Borrando contenedor con id de contenedor\n")
+        print("Mostrando contenedores activos y desactivos")
+        print("\nsudo docker ps -a\n")
+        system(f"sudo docker ps -a")
+
+        print("\nBorrando contenedor con id de contenedor\n")
         contenedor = input("Ingrese ID del contenedor: ")
         print(f"\nsudo docker rm -f {contenedor}\n")
         system(f"sudo docker rm -f {contenedor}")
@@ -151,15 +159,15 @@ while True:
         print(f"\nsudo docker login\n")
         system(f"sudo docker login")
 
-        print("")
 
-        print("Mostrando lista de imáges")
+
+        print("\nMostrando lista de imáges")
         print("\nsudo docker image ls\n")
         system(f"sudo docker image ls")
 
-        print("")
 
-        print("Docker create y push a docker hub.\n")
+
+        print("\nDocker create y push a docker hub.\n")
         usuario = input("Nombre de usuario: ")
         repositorio = input("Nombre del repositorio de imágen: ")
         tag = input("Nombre del tag de la imágen: ")
