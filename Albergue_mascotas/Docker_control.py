@@ -19,14 +19,15 @@ def menu():
     print("7. Borrrar contenedor con id de contenedor.")
     print("8. Buil con docker composer.")
     print("9. Up con docker compose.")
-    print("10. Makemigrations docker-compose -> Django.")
-    print("11. Migrate docker-compose -> Django.")
-    print("12. Collectstatic docker-compose -> Django.")
-    print("13. Ingresar a contenedor.")
-    print("14. Iniciar docker desktop.")
-    print("15. Docker create y push a docker hub.")
-    print("16 Docker login.")
-    print("17. Salir.\n")
+    print("10. Down con docker compose.")
+    print("11. Makemigrations docker-compose -> Django.")
+    print("12. Migrate docker-compose -> Django.")
+    print("13. Collectstatic docker-compose -> Django.")
+    print("14. Ingresar a contenedor.")
+    print("15. Iniciar docker desktop.")
+    print("16. Docker create y push a docker hub.")
+    print("17. Docker login.")
+    print("18. Salir.\n")
 
 
 while True:
@@ -113,32 +114,39 @@ while True:
     elif opc == '9':
         print('=================================================================================')
         print("Up con docker compose\n")
-        print(f"\nsudo COMPOSE_HTTP_TIMEOUT=200 docker-compose up\n")
-        system(f"sudo COMPOSE_HTTP_TIMEOUT=200 docker-compose up")
+        print(f"\nsudo COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d\n")
+        system(f"sudo COMPOSE_HTTP_TIMEOUT=200 docker-compose up -d")
         print('=================================================================================')
 
     elif opc == '10':
+        print('=================================================================================')
+        print("Down con docker compose\n")
+        print(f"\nsudo COMPOSE_HTTP_TIMEOUT=200 docker-compose down\n")
+        system(f"sudo COMPOSE_HTTP_TIMEOUT=200 docker-compose down")
+        print('=================================================================================')
+
+    elif opc == '11':
         print('=================================================================================')
         print("Makemigrations docker-compose -> Django\n")
         print(f"\nsudo COMPOSE_HTTP_TIMEOUT=200 docker-compose run django_app python manage.py makemigrations\n")
         system(f"sudo COMPOSE_HTTP_TIMEOUT=200 docker-compose run django_app python manage.py makemigrations")
         print('=================================================================================')
 
-    elif opc == '11':
+    elif opc == '12':
         print('=================================================================================')
         print("Migrate docker-compose -> Django\n")
         print(f"\nsudo COMPOSE_HTTP_TIMEOUT=200 docker-compose run django_app python manage.py migrate\n")
         system(f"sudo COMPOSE_HTTP_TIMEOUT=200 docker-compose run django_app python manage.py migrate")
         print('=================================================================================')
 
-    elif opc == '12':
+    elif opc == '13':
         print('=================================================================================')
         print("Collectstatic docker-compose -> Django\n")
         print(f"\nsudo COMPOSE_HTTP_TIMEOUT=200 docker-compose run django_app python manage.py collectstatic\n")
         system(f"sudo COMPOSE_HTTP_TIMEOUT=200 docker-compose run django_app python manage.py collectstatic")
         print('=================================================================================')
 
-    elif opc == '13':
+    elif opc == '14':
         print('=================================================================================')
         print("Borrando contenedor con id de contenedor\n")
         contenedor = input("Ingrese ID del contenedor: ")
@@ -146,14 +154,14 @@ while True:
         system(f"sudo docker exec -it {contenedor} psql -U postgres")
         print('=================================================================================')
 
-    elif opc == '14':
+    elif opc == '15':
         print('=================================================================================')
         print("Iniciando docker desktop\n")
         print(f"\nsudo systemctl --user start docker-desktop\n")
         system(f"sudo systemctl --user start docker-desktop")
         print('=================================================================================')
 
-    elif opc == '15':
+    elif opc == '16':
         print('=================================================================================')
         print("Docker login\n")
         print(f"\nsudo docker login\n")
@@ -174,7 +182,7 @@ while True:
 
         print("\nCreando variante")
 
-        print(f"\sudo docker tag {repositorio} {usuario}/{repositorio}:{tag}\n")
+        print(f"\nsudo docker tag {repositorio} {usuario}/{repositorio}:{tag}\n")
         system(f"sudo docker tag {repositorio} {usuario}/{repositorio}:{tag}")
 
         print(f"\nPush a repository de {usuario}.")
@@ -183,7 +191,7 @@ while True:
 
         print('=================================================================================')
 
-    elif opc == '16':
+    elif opc == '17':
         print('=================================================================================')
         print("Docker login\n")
         print(f"\nsudo docker login\n")
@@ -191,7 +199,7 @@ while True:
         print('=================================================================================')
 
 
-    elif opc == '17':
+    elif opc == '18':
         print('===================')
         print("||   Saliendo.   ||")
         print('===================')

@@ -30,6 +30,10 @@ services:
 
     depends_on:
       - db_postgress
+      
+    expose:
+      - 8000
+    restart: always
 
 
   nginx:
