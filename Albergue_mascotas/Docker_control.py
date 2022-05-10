@@ -18,7 +18,7 @@ def menu():
     print("6. Publicando contenedor de Django.")
     print("7. Borrrar contenedor con id de contenedor.")
     print("8. Buil con docker composer.")
-    print("9. Up con docker composer.")
+    print("9. Up con docker compose.")
     print("10. Makemigrations docker-compose -> Django.")
     print("11. Migrate docker-compose -> Django.")
     print("12. Collectstatic docker-compose -> Django.")
@@ -112,7 +112,7 @@ while True:
 
     elif opc == '9':
         print('=================================================================================')
-        print("Up con docker composer\n")
+        print("Up con docker compose\n")
         print(f"\nsudo COMPOSE_HTTP_TIMEOUT=200 docker-compose up\n")
         system(f"sudo COMPOSE_HTTP_TIMEOUT=200 docker-compose up")
         print('=================================================================================')
