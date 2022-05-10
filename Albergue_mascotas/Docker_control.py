@@ -202,3 +202,12 @@ while True:
         menu()
         opc = input("Ingrese una opción: ")
         os.system ("clear")
+
+
+'''
+#############################################
+#   Menú creado por:                        #
+#       Héctor Fernando Carrera Soto        #
+#       Github: https://github.com/hefecaso #
+#############################################
+'''
