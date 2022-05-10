@@ -148,14 +148,14 @@ while True:
 
     elif opc == '14':
         print('=================================================================================')
-        print("Iniciando docker desktop.\n")
+        print("Iniciando docker desktop\n")
         print(f"\nsudo systemctl --user start docker-desktop\n")
         system(f"sudo systemctl --user start docker-desktop")
         print('=================================================================================')
 
     elif opc == '15':
         print('=================================================================================')
-        print("Docker login.\n")
+        print("Docker login\n")
         print(f"\nsudo docker login\n")
         system(f"sudo docker login")
 
@@ -167,7 +167,7 @@ while True:
 
 
 
-        print("\nDocker create y push a docker hub.\n")
+        print("\nDocker create y push a docker hub\n")
         usuario = input("Nombre de usuario: ")
         repositorio = input("Nombre del repositorio de imágen: ")
         tag = input("Nombre del tag de la imágen: ")
@@ -185,7 +185,7 @@ while True:
 
     elif opc == '16':
         print('=================================================================================')
-        print("Docker login.\n")
+        print("Docker login\n")
         print(f"\nsudo docker login\n")
         system(f"sudo docker login")
         print('=================================================================================')
