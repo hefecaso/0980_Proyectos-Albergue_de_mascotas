@@ -71,10 +71,27 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'Albergue_mascotas.urls'
 
-
+'''
 TEMPLATES = [
     {
         'BACKEND': 'django.db.backends.postgresql',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+'''
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -195,9 +212,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS =[
-   BASE_DIR / "static"
-   ]
+#STATICFILES_DIRS =[BASE_DIR / "static"]
 
 '''
 #Statir_root para exportar e importar en archivos la base de validators
