@@ -24,10 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-h12850(gxnu#^12lv@z!^46%j#2uhi*#v_qg3uxe29(puvw5xs'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 #En desarrollo
 ALLOWED_HOSTS = ['*']
+
+CSRF_TRUSTED_ORIGINS = ['http://*.localhost:8000','https://*.127.0.0.1:8000']
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
 #Lanzando
 #ALLOWED_HOSTS = ['url']
@@ -190,6 +194,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS =[
+   BASE_DIR / "static"
+   ]
 
 '''
 #Statir_root para exportar e importar en archivos la base de validators

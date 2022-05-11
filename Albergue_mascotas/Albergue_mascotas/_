@@ -7,3 +7,7 @@
 172.19.0.4 - - [10/May/2022:03:40:19 -0600] "GET /favicon.ico HTTP/1.0" 500 0 "-" "-"
 172.19.0.4 - - [10/May/2022:03:40:21 -0600] "GET /favicon.ico HTTP/1.0" 500 0 "-" "-"
 172.19.0.4 - - [10/May/2022:03:40:23 -0600] "GET /favicon.ico HTTP/1.0" 500 0 "-" "-"
+172.19.0.4 - - [11/May/2022:00:14:51 -0600] "GET / HTTP/1.0" 500 86038 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36"
+172.19.0.4 - - [11/May/2022:00:14:54 -0600] "GET /favicon.ico HTTP/1.0" 404 4811 "http://0.0.0.0:8000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36"
+172.19.0.4 - - [11/May/2022:00:14:56 -0600] "GET /favicon.ico HTTP/1.0" 404 4811 "http://0.0.0.0:8000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36"
+172.19.0.4 - - [11/May/2022:00:14:58 -0600] "GET /favicon.ico HTTP/1.0" 404 4811 "http://0.0.0.0:8000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36"
