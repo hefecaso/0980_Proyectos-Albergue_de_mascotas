@@ -1,4 +1,4 @@
-name = 'django_app'
+name = 'Albergue_mascotas'
 loglevel = 'info'
 errorlog = '-'
 accesslog = '_'
