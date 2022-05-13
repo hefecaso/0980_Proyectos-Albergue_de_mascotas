@@ -178,7 +178,7 @@ while True:
         print("\nDocker create y push a docker hub\n")
         usuario = input("Nombre de usuario: ")
         repositorio = input("Nombre del repositorio de imágen: ")
-        tag = input("Nombre del tag de la imágen: ")
+        tag = input("Nombre del nuevo tag de la imágen: ")
 
         print("\nCreando variante")
 
